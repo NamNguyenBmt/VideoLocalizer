@@ -1,7 +1,16 @@
 # VideoLocalizer
 
-Công cụ **của riêng bạn** để bản địa hóa video hàng loạt — feature-parity với CFlow, nhưng viết mới
-100% từ thành phần mã nguồn mở. Bạn sở hữu toàn bộ mã, dùng vĩnh viễn, không license.
+Công cụ **của riêng bạn** để bản địa hóa video hàng loạt — tải, nhận phụ đề, dịch, lồng tiếng và render,
+viết mới 100% từ thành phần mã nguồn mở. Bạn sở hữu toàn bộ mã, dùng vĩnh viễn, không license.
+
+## Ảnh giao diện
+Màn hình xử lý chính (tải · phụ đề · dịch · lồng tiếng · hình ảnh · xuất):
+
+![Xử lý](docs/img/process.png)
+
+| Giọng nói (Voice Studio) | Clone giọng | Sửa phụ đề | Môi trường |
+|---|---|---|---|
+| ![Giọng nói](docs/img/studio.png) | ![Clone](docs/img/clone.png) | ![SRT](docs/img/srt.png) | ![Môi trường](docs/img/env.png) |
 
 ## Tính năng
 - 📥 **Tải video** (yt-dlp): YouTube/TikTok/Instagram/X/Reddit/Facebook…
@@ -81,4 +90,8 @@ VideoLocalizer/
 
 ## Giấy phép thành phần
 faster-whisper (MIT) · edge-tts (GPL-3.0) · yt-dlp (Unlicense) · RapidOCR (Apache-2.0) ·
-Demucs (MIT) · F5-TTS (MIT/CC) · ffmpeg (LGPL/GPL). Mã trong repo này là của bạn.
+Demucs (MIT) · F5-TTS (MIT/CC) · Piper (MIT) · ffmpeg (LGPL/GPL) · pywebview (BSD).
+
+## License
+Mã nguồn trong repo này do tác giả viết, phát hành theo **MIT License** — xem [LICENSE](LICENSE).
+Khi phân phối kèm các thành phần bên thứ ba ở trên, hãy tuân thủ giấy phép riêng của từng thành phần.

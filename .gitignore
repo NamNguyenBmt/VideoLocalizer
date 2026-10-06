@@ -1,0 +1,31 @@
+# ---- Python ----
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+
+# ---- PyInstaller build artifacts ----
+build/
+dist/
+*.spec
+*.exe
+
+# ---- Big / downloadable assets (tải lại bằng scripts/download_models.py) ----
+models/piper/*.onnx
+models/**/*.onnx
+
+# ---- Runtime data (sinh ra khi chạy) ----
+output/
+downloads/
+work/
+bin/
+
+# ---- Logs & OS ----
+*.log
+.DS_Store
+Thumbs.db
+
+# ---- Playwright login session / secrets (KHÔNG commit) ----
+work/gemini_profile/
+glossary.txt

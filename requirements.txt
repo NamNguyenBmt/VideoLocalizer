@@ -1,0 +1,18 @@
+# ==== Bắt buộc (đã test chạy OK) ====
+faster-whisper>=1.0.0        # ASR — nghe giọng ra phụ đề (CPU, không cần torch)
+edge-tts>=6.1.0             # Lồng tiếng AI miễn phí
+yt-dlp>=2024.1.1           # Tải video YouTube/TikTok/IG/X/Reddit/FB
+rapidocr-onnxruntime>=1.3   # OCR chữ cứng trên video
+opencv-python-headless>=4.8 # đọc frame cho OCR
+
+# ==== Dịch Gemini web miễn phí (không cần key) ====
+# playwright               # sau khi cài: chạy `playwright install chromium` 1 lần
+
+# ==== Tuỳ chọn / nặng ====
+# torch --index-url https://download.pytorch.org/whl/cu121   # Whisper chạy GPU (nhanh hơn nhiều)
+piper-tts                 # TTS offline; model VN đã tải sẵn ở models/piper/
+# demucs                    # tách nhạc nền khỏi giọng (kéo theo torch)
+# f5-tts                    # clone giọng từ mẫu (kéo theo torch)
+
+# Dịch: KHÔNG cần thư viện — gọi thẳng REST (Gemini/Groq/OpenAI) bằng stdlib.
+# ffmpeg: dùng bản có sẵn trên máy (tool tự dò trong CFlow\vendor\ffmpeg).

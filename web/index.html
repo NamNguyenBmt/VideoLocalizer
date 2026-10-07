@@ -200,10 +200,13 @@
           <option value="chrome">Chrome</option><option value="edge">Edge</option>
           <option value="firefox">Firefox</option><option value="brave">Brave</option>
           <option value="chromium">Chromium</option><option value="opera">Opera</option></select></div>
-      <div><label>&nbsp;</label><div class="hint" style="margin-top:10px">Chọn trình duyệt anh ĐÃ đăng nhập
-        Douyin/Rednote/… — yt-dlp sẽ mượn phiên đó. Áp dụng cho Tải, Gợi ý hot, Theo dõi kênh, và Xử lý từ URL.
-        <b>Đóng trình duyệt đó trước khi tải</b> (Chrome khoá file cookie).</div></div>
+      <div><label>…hoặc file cookies.txt (ổn định hơn)</label>
+        <input id="cookies_file" placeholder="E:\cookies.txt (nếu điền sẽ ưu tiên file này)"></div>
     </div>
+    <div class="hint" style="margin-top:6px">Chrome/Edge đời mới mã hoá cookie → đọc trực tiếp hay lỗ
+      (<b>phải đóng trình duyệt</b> mà vẫn có thể fail). <b>Cách chắc ăn:</b> cài extension
+      "Get cookies.txt LOCALLY", vào Douyin/Rednote (đã đăng nhập) → Export → lưu <code>cookies.txt</code> →
+      dán đường dẫn vào ô trên. Áp dụng cho Tải, Gợi ý hot, Theo dõi kênh, Xử lý từ URL.</div>
   </div>
   <div class="card">
     <h2>Tải video (yt-dlp)</h2>
@@ -358,7 +361,7 @@ function playOut(m){const pv=$('preview_vid');pv.src=m+'&t='+Date.now();pv.style
 async function delOut(name){await j('/api/output_delete',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name})});loadOutputs();}
 
 async function j(u,o){const r=await fetch(u,o);return r.json();}
-function cookieVal(){return ($('cookies')||{}).value||'';}
+function cookieVal(){const f=($('cookies_file')||{}).value;return (f&&f.trim())?f.trim():(($('cookies')||{}).value||'');}
 let EDGE_OPT='';
 async function loadVoices(){const d=await j('/api/voices');
   EDGE_OPT=d.voices.map(v=>`<option value="${v.id}">${v.label}</option>`).join('');
@@ -379,7 +382,7 @@ $('glossary').addEventListener('blur',()=>fetch('/api/glossary_save',{method:'PO
   headers:{'Content-Type':'application/json'},body:JSON.stringify({text:$('glossary').value})}));
 
 // ---- settings persistence (localStorage) ----
-const SETTING_IDS=['cookies','source_lang','target_lang','sub_source','whisper_model','translate_provider',
+const SETTING_IDS=['cookies','cookies_file','source_lang','target_lang','sub_source','whisper_model','translate_provider',
   'genre','dub_engine','tts_voice','tts_voice2','tts_rate','erase_mode','output',
   'dub','remove_bgm','keep_original_audio','denoise','burn_subs','karaoke','bilingual',
   'erase_old_sub','mirror','dual_voice','make_thumb','speed','zoom','reframe'];

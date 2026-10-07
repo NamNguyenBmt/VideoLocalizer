@@ -1,9 +1,28 @@
 """Video download via yt-dlp (YouTube/TikTok/Instagram/X/Reddit/Facebook...)."""
 from __future__ import annotations
 
+import os
 from pathlib import Path
 
 from . import tools
+
+
+def _is_cookie_file(val: str) -> bool:
+    return bool(val) and (val.lower().endswith(".txt") or os.path.isfile(val))
+
+
+def _cookie_cli(val: str | None) -> list:
+    """yt-dlp CLI cookie args — a cookies.txt path OR a browser name."""
+    if not val:
+        return []
+    return ["--cookies", val] if _is_cookie_file(val) else ["--cookies-from-browser", val]
+
+
+def _cookie_opts(val: str | None) -> dict:
+    """yt-dlp Python-API cookie options — cookies.txt path OR browser name."""
+    if not val:
+        return {}
+    return {"cookiefile": val} if _is_cookie_file(val) else {"cookiesfrombrowser": (val,)}
 
 
 def _ytdlp_cmd() -> list:
@@ -27,8 +46,7 @@ def download(url: str, out_dir: str | None = None, audio_only=False,
         cmd += ["-x", "--audio-format", "mp3"]
     else:
         cmd += ["-f", "bv*+ba/b", "--merge-output-format", "mp4"]
-    if cookies_from_browser:
-        cmd += ["--cookies-from-browser", cookies_from_browser]
+    cmd += _cookie_cli(cookies_from_browser)
     cmd.append(url)
 
     code, out, err = tools.run_capture(cmd, timeout=1800)
@@ -69,8 +87,7 @@ def suggest_hot(query: str, limit=20, sort="views", cookies_from_browser: str | 
         "extract_flat": True, "ignoreerrors": True,
         "playlistend": max(limit * 2, 40),
     }
-    if cookies_from_browser:
-        opts["cookiesfrombrowser"] = (cookies_from_browser,)
+    opts.update(_cookie_opts(cookies_from_browser))
 
     try:
         with yt_dlp.YoutubeDL(opts) as ydl:
@@ -104,8 +121,7 @@ def list_channel(url: str, limit=15, cookies_from_browser: str | None = None,
                  log=print) -> list[dict]:
     """List latest videos of a channel/playlist/user (no download)."""
     cmd = _ytdlp_cmd() + ["--flat-playlist", "-J", "--playlist-end", str(limit)]
-    if cookies_from_browser:
-        cmd += ["--cookies-from-browser", cookies_from_browser]
+    cmd += _cookie_cli(cookies_from_browser)
     cmd.append(url)
     code, out, err = tools.run_capture(cmd, timeout=120)
     if code != 0:

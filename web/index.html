@@ -226,6 +226,21 @@
       đăng nhập — dán link hashtag/kênh trực tiếp sẽ ổn hơn.</div>
   </div>
   <div class="card">
+    <h2>🕷️ Cào toàn bộ kênh (Douyin / TikTok)</h2>
+    <label>Link kênh/user (vd https://www.douyin.com/user/XXXX)</label>
+    <input id="crawl_url" placeholder="dán link trang kênh Douyin/TikTok">
+    <div class="row">
+      <div><label>Số video tối đa</label><input id="crawl_limit" value="30"></div>
+      <div><label>&nbsp;</label>
+        <div class="chk"><input type="checkbox" id="crawl_auto" checked><label>Tự đưa hết vào xử lý (dùng cấu hình tab Xử lý)</label></div></div>
+    </div>
+    <button class="act" id="crawl_go">🕷️ Cào kênh</button>
+    <div class="log" id="crawl_log" style="margin-top:8px;height:140px">[Sẵn sàng] Cần đăng nhập Douyin trong cửa sổ hiện ra lần đầu.</div>
+    <div id="crawl_found" style="margin-top:6px"></div>
+    <div class="hint">Mở cửa sổ trình duyệt để anh đăng nhập/qua captcha (lần đầu, nhớ phiên).
+      Cào xong nếu bật "tự đưa vào xử lý" → xem tiến trình ở tab Hàng đợi.</div>
+  </div>
+  <div class="card">
     <h2>Theo dõi kênh (xem video mới)</h2>
     <label>URL kênh / playlist / user</label>
     <input id="ch_url" placeholder="https://youtube.com/@kênh  hoặc  https://tiktok.com/@user">
@@ -414,8 +429,8 @@ $('srt_use').onclick=()=>{if(!SRT_CUR){alert('Mở 1 file SRT trước');return;
   document.querySelector('nav button[data-v="process"]').click();};
 
 // ---- process ----
-$('go').onclick=async()=>{
-  const cfg={
+function buildProcessCfg(){
+  return {
     video:$('video').value.trim(),url:$('url').value.trim(),cookies:cookieVal(),
     sub_source:$('sub_source').value,srt_path:$('srt_path').value.trim(),
     whisper_model:$('whisper_model').value,
@@ -438,6 +453,9 @@ $('go').onclick=async()=>{
       const k=$('karaoke_col').value.trim();
       if(sz)s.size=parseInt(sz);if(c)s.color=c;if(k)s.karaoke_col=k;return s;})()
   };
+}
+$('go').onclick=async()=>{
+  const cfg=buildProcessCfg();
   if(!cfg.video&&!cfg.url){alert('Nhập đường dẫn video hoặc URL.');return;}
   const d=await j('/api/process',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(cfg)});
   if(!d.ok){alert(d.msg||'Lỗi');return;}
@@ -486,6 +504,32 @@ $('hot_go').onclick=async()=>{
        <button class="ghost" onclick="useUrl('${(it.url||'').replace(/'/g,'')}')">Xử lý</button></span></div>`).join('');
 };
 function useUrl(url){$('url').value=url;$('video').value='';document.querySelector('nav button[data-v="process"]').click();}
+
+// ---- crawl toàn bộ kênh ----
+let crawlPolling=false;
+$('crawl_go').onclick=async()=>{
+  const url=$('crawl_url').value.trim();if(!url){alert('Nhập link kênh');return;}
+  const body=Object.assign(buildProcessCfg(),{url,limit:parseInt($('crawl_limit').value||'30'),
+    auto_queue:$('crawl_auto').checked});
+  $('crawl_log').textContent='Đang mở trình duyệt...';$('crawl_found').innerHTML='';
+  const d=await j('/api/crawl_start',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});
+  if(!d.ok){alert(d.msg||'Không chạy được');return;}
+  if(!crawlPolling){crawlPolling=true;pollCrawl();}
+};
+async function pollCrawl(){
+  const d=await j('/api/crawl_status');
+  $('crawl_log').textContent=(d.log||[]).join('\n');
+  $('crawl_log').scrollTop=$('crawl_log').scrollHeight;
+  if(d.found&&d.found.length){
+    $('crawl_found').innerHTML=`<b>${d.found.length} video</b>`+
+      (d.queued?` · đã đưa ${d.queued} vào hàng đợi`:'')+
+      '<div style="max-height:120px;overflow:auto;margin-top:4px">'+
+      d.found.slice(0,50).map(u=>`<div class="dl-item"><span>${u}</span>
+        <button class="ghost" onclick="useUrl('${u.replace(/'/g,'')}')">Xử lý</button></div>`).join('')+'</div>';
+  }
+  if(d.running){setTimeout(pollCrawl,1500);}
+  else{crawlPolling=false; if(d.queued)document.querySelector('nav button[data-v="queue"]').click();}
+}
 
 // ---- channel monitor ----
 $('ch_go').onclick=async()=>{

@@ -19,9 +19,59 @@ except Exception:
     pass
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from core import tools, download, tts, capcut, render   # noqa: E402
+import threading                                         # noqa: E402
+import time as _time                                    # noqa: E402
+from core import tools, download, tts, capcut, render, channel_crawler  # noqa: E402
 from core.pipeline import JobConfig                     # noqa: E402
 from core.queue import QUEUE                             # noqa: E402
+
+# ---- channel crawl (Playwright) background state ----
+_crawl = {"running": False, "log": [], "found": [], "queued": 0, "done": False}
+_crawl_lock = threading.Lock()
+
+
+def _crawl_log(line):
+    with _crawl_lock:
+        _crawl["log"].append(f"[{_time.strftime('%H:%M:%S')}] {line}")
+
+
+def _start_crawl(body):
+    def worker():
+        try:
+            urls = channel_crawler.crawl_user_videos(
+                (body.get("url") or "").strip(),
+                int(body.get("limit", 30)), headless=False, log=_crawl_log)
+            with _crawl_lock:
+                _crawl["found"] = urls
+            if body.get("auto_queue") and urls:
+                base = {k: v for k, v in body.items()
+                        if k not in ("url", "limit", "auto_queue")}
+                for vu in urls:
+                    cfg = JobConfig()
+                    for k, v in base.items():
+                        if hasattr(cfg, k):
+                            setattr(cfg, k, v)
+                    cfg.url = vu
+                    cfg.video = ""
+                    cfg.speed = float(base.get("speed", 1.0) or 1.0)
+                    cfg.zoom = float(base.get("zoom", 1.0) or 1.0)
+                    QUEUE.add(cfg)
+                with _crawl_lock:
+                    _crawl["queued"] = len(urls)
+                _crawl_log(f"Đã đưa {len(urls)} video vào hàng đợi xử lý.")
+        except Exception as e:
+            _crawl_log("LỖI: " + str(e))
+        finally:
+            with _crawl_lock:
+                _crawl["running"] = False
+                _crawl["done"] = True
+
+    with _crawl_lock:
+        if _crawl["running"]:
+            return False
+        _crawl.update(running=True, log=[], found=[], queued=0, done=False)
+    threading.Thread(target=worker, daemon=True).start()
+    return True
 
 HERE = Path(__file__).resolve().parent
 WEB = HERE / "web"
@@ -85,6 +135,11 @@ class Handler(BaseHTTPRequestHandler):
             self._send(200, {"items": download.list_downloads()})
         elif p == "/api/queue":
             self._send(200, {"jobs": QUEUE.snapshot()})
+        elif p == "/api/crawl_status":
+            with _crawl_lock:
+                self._send(200, {"running": _crawl["running"], "done": _crawl["done"],
+                                 "found": _crawl["found"], "queued": _crawl["queued"],
+                                 "log": _crawl["log"][-200:]})
         elif p == "/api/env":
             self._send(200, self._env_status())
         elif p == "/api/outputs":
@@ -138,6 +193,11 @@ class Handler(BaseHTTPRequestHandler):
                                  "media": "/api/media?path=" + _q(out)})
             except Exception as e:
                 self._send(200, {"ok": False, "msg": str(e)})
+        elif p == "/api/crawl_start":
+            if not (body.get("url") or "").strip():
+                self._send(400, {"ok": False, "msg": "Thiếu link kênh."}); return
+            ok = _start_crawl(body)
+            self._send(200, {"ok": ok})
         elif p == "/api/channel_list":
             items = download.list_channel((body.get("url") or "").strip(),
                                           int(body.get("limit", 15)),

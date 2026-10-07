@@ -201,6 +201,15 @@
     <div class="log" id="dl_log" style="margin-top:10px;height:140px">[Sẵn sàng]</div>
   </div>
   <div class="card">
+    <h2>🔥 Gợi ý video HOT (theo view)</h2>
+    <label>Link kênh / hashtag, hoặc từ khoá (từ khoá = tìm trên YouTube)</label>
+    <input id="hot_q" placeholder="vd: https://www.tiktok.com/tag/nauan  ·  hoặc gõ: nấu ăn trung quốc">
+    <button class="ghost" id="hot_go" style="margin-top:8px">🔥 Tìm video hot</button>
+    <div id="hot_list" style="margin-top:8px"></div>
+    <div class="hint">Xếp theo lượt view (cao → thấp) khi nền tảng có view. Douyin/Rednote có thể cần
+      đăng nhập — dán link hashtag/kênh trực tiếp sẽ ổn hơn.</div>
+  </div>
+  <div class="card">
     <h2>Theo dõi kênh (xem video mới)</h2>
     <label>URL kênh / playlist / user</label>
     <input id="ch_url" placeholder="https://youtube.com/@kênh  hoặc  https://tiktok.com/@user">
@@ -445,6 +454,22 @@ async function refreshQueue(){const d=await j('/api/queue');
 setInterval(()=>{if($('v-queue').classList.contains('on'))refreshQueue();},1500);
 
 // ---- env ----
+// ---- hot suggestions ----
+function fmtDur(s){s=parseInt(s||0);if(!s)return'';const m=Math.floor(s/60),ss=s%60;return `${m}:${String(ss).padStart(2,'0')}`;}
+$('hot_go').onclick=async()=>{
+  const q=$('hot_q').value.trim();if(!q){alert('Nhập link/từ khoá');return;}
+  $('hot_list').innerHTML='Đang tìm...';
+  const d=await j('/api/suggest_hot',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({query:q,limit:20})});
+  if(!d.items||!d.items.length){$('hot_list').innerHTML='Không lấy được (thử dán link kênh/hashtag trực tiếp; nền tảng TQ có thể cần đăng nhập).';return;}
+  $('hot_list').innerHTML=d.items.map((it,i)=>
+    `<div class="dl-item"><span>${i+1}. ${(it.title||'').replace(/</g,'&lt;')}
+       <b style="color:var(--acc)">▶ ${it.views_h}</b> ${it.duration?('· '+fmtDur(it.duration)):''}
+       ${it.uploader?('· '+(it.uploader).replace(/</g,'&lt;')):''}</span><span>
+       <button class="ghost" onclick="dlUrl('${(it.url||'').replace(/'/g,'')}')">Tải</button>
+       <button class="ghost" onclick="useUrl('${(it.url||'').replace(/'/g,'')}')">Xử lý</button></span></div>`).join('');
+};
+function useUrl(url){$('url').value=url;$('video').value='';document.querySelector('nav button[data-v="process"]').click();}
+
 // ---- channel monitor ----
 $('ch_go').onclick=async()=>{
   const url=$('ch_url').value.trim();if(!url){alert('Nhập URL kênh');return;}

@@ -40,6 +40,66 @@ def download(url: str, out_dir: str | None = None, audio_only=False,
             "file": files[-1] if files else None}
 
 
+def _fmt_views(n) -> str:
+    n = int(n or 0)
+    if n >= 1_000_000:
+        return f"{n/1_000_000:.1f}M"
+    if n >= 1_000:
+        return f"{n/1_000:.1f}K"
+    return str(n)
+
+
+def suggest_hot(query: str, limit=20, sort="views", cookies_from_browser: str | None = None,
+                log=print) -> list[dict]:
+    """Rank candidate videos by popularity for content sourcing.
+
+    `query` can be a URL (channel / hashtag / playlist page) or plain keywords
+    (→ YouTube search). Returns items sorted by view count (hottest first) when
+    the platform exposes view counts, else in the platform's own order.
+    """
+    import yt_dlp
+
+    q = (query or "").strip()
+    if not q:
+        return []
+    target = q if q.startswith("http") else f"ytsearch{max(limit, 20)}:{q}"
+
+    opts = {
+        "quiet": True, "no_warnings": True, "skip_download": True,
+        "extract_flat": True, "ignoreerrors": True,
+        "playlistend": max(limit * 2, 40),
+    }
+    if cookies_from_browser:
+        opts["cookiesfrombrowser"] = (cookies_from_browser,)
+
+    try:
+        with yt_dlp.YoutubeDL(opts) as ydl:
+            info = ydl.extract_info(target, download=False)
+    except Exception as e:
+        log(f"[HOT] Lỗi lấy danh sách: {e}")
+        return []
+
+    entries = (info or {}).get("entries") or []
+    items = []
+    for e in entries:
+        if not e:
+            continue
+        vid = e.get("id", "")
+        views = e.get("view_count") or 0
+        items.append({
+            "title": e.get("title") or vid,
+            "url": e.get("url") or e.get("webpage_url") or (f"https://youtu.be/{vid}" if vid else ""),
+            "views": views, "views_h": _fmt_views(views),
+            "duration": int(e.get("duration") or 0),
+            "uploader": e.get("uploader") or e.get("channel") or "",
+            "thumb": e.get("thumbnail") or "",
+        })
+    if sort == "views" and any(it["views"] for it in items):
+        items.sort(key=lambda x: -(x["views"] or 0))
+    log(f"[HOT] {len(items)} video (sắp theo {sort}).")
+    return items[:limit]
+
+
 def list_channel(url: str, limit=15, log=print) -> list[dict]:
     """List latest videos of a channel/playlist/user (no download)."""
     cmd = _ytdlp_cmd() + ["--flat-playlist", "-J", "--playlist-end", str(limit), url]

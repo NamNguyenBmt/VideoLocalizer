@@ -141,6 +141,11 @@ class Handler(BaseHTTPRequestHandler):
             items = download.list_channel((body.get("url") or "").strip(),
                                           int(body.get("limit", 15)))
             self._send(200, {"items": items})
+        elif p == "/api/suggest_hot":
+            items = download.suggest_hot((body.get("query") or "").strip(),
+                                         int(body.get("limit", 20)),
+                                         cookies_from_browser=body.get("cookies") or None)
+            self._send(200, {"items": items})
         elif p == "/api/clone_prepare":
             ref = (body.get("ref_audio") or "").strip()
             if not Path(ref).is_file():

@@ -17,6 +17,7 @@ from .subtitle import Cue, to_srt, to_ass
 class JobConfig:
     video: str = ""
     url: str = ""                       # if set, download first
+    cookies: str = ""                   # browser for yt-dlp cookies (chrome/edge/...)
     # source
     source_lang: str = "auto"
     target_lang: str = "vi"
@@ -70,7 +71,7 @@ def run(cfg: JobConfig, log=print) -> dict:
     # 0) download
     if cfg.url and not cfg.video:
         from . import download
-        r = download.download(cfg.url, log=log)
+        r = download.download(cfg.url, cookies_from_browser=cfg.cookies or None, log=log)
         if not r["ok"]:
             raise RuntimeError("Tải video thất bại")
         cfg.video = r["file"]

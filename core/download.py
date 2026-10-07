@@ -100,9 +100,13 @@ def suggest_hot(query: str, limit=20, sort="views", cookies_from_browser: str | 
     return items[:limit]
 
 
-def list_channel(url: str, limit=15, log=print) -> list[dict]:
+def list_channel(url: str, limit=15, cookies_from_browser: str | None = None,
+                 log=print) -> list[dict]:
     """List latest videos of a channel/playlist/user (no download)."""
-    cmd = _ytdlp_cmd() + ["--flat-playlist", "-J", "--playlist-end", str(limit), url]
+    cmd = _ytdlp_cmd() + ["--flat-playlist", "-J", "--playlist-end", str(limit)]
+    if cookies_from_browser:
+        cmd += ["--cookies-from-browser", cookies_from_browser]
+    cmd.append(url)
     code, out, err = tools.run_capture(cmd, timeout=120)
     if code != 0:
         for l in err.splitlines()[-4:]:

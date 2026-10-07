@@ -193,6 +193,19 @@
 <!-- ===== TẢI ===== -->
 <section class="view" id="v-download">
   <div class="card">
+    <h2>🍪 Cookie trình duyệt (cho nền tảng cần đăng nhập)</h2>
+    <div class="row">
+      <div><label>Dùng cookie từ</label>
+        <select id="cookies"><option value="">Không</option>
+          <option value="chrome">Chrome</option><option value="edge">Edge</option>
+          <option value="firefox">Firefox</option><option value="brave">Brave</option>
+          <option value="chromium">Chromium</option><option value="opera">Opera</option></select></div>
+      <div><label>&nbsp;</label><div class="hint" style="margin-top:10px">Chọn trình duyệt anh ĐÃ đăng nhập
+        Douyin/Rednote/… — yt-dlp sẽ mượn phiên đó. Áp dụng cho Tải, Gợi ý hot, Theo dõi kênh, và Xử lý từ URL.
+        <b>Đóng trình duyệt đó trước khi tải</b> (Chrome khoá file cookie).</div></div>
+    </div>
+  </div>
+  <div class="card">
     <h2>Tải video (yt-dlp)</h2>
     <label>URL (YouTube / TikTok / Instagram / X / Reddit / Facebook…)</label>
     <input id="dl_url" placeholder="https://...">
@@ -345,6 +358,7 @@ function playOut(m){const pv=$('preview_vid');pv.src=m+'&t='+Date.now();pv.style
 async function delOut(name){await j('/api/output_delete',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name})});loadOutputs();}
 
 async function j(u,o){const r=await fetch(u,o);return r.json();}
+function cookieVal(){return ($('cookies')||{}).value||'';}
 let EDGE_OPT='';
 async function loadVoices(){const d=await j('/api/voices');
   EDGE_OPT=d.voices.map(v=>`<option value="${v.id}">${v.label}</option>`).join('');
@@ -365,7 +379,7 @@ $('glossary').addEventListener('blur',()=>fetch('/api/glossary_save',{method:'PO
   headers:{'Content-Type':'application/json'},body:JSON.stringify({text:$('glossary').value})}));
 
 // ---- settings persistence (localStorage) ----
-const SETTING_IDS=['source_lang','target_lang','sub_source','whisper_model','translate_provider',
+const SETTING_IDS=['cookies','source_lang','target_lang','sub_source','whisper_model','translate_provider',
   'genre','dub_engine','tts_voice','tts_voice2','tts_rate','erase_mode','output',
   'dub','remove_bgm','keep_original_audio','denoise','burn_subs','karaoke','bilingual',
   'erase_old_sub','mirror','dual_voice','make_thumb','speed','zoom','reframe'];
@@ -399,7 +413,7 @@ $('srt_use').onclick=()=>{if(!SRT_CUR){alert('Mở 1 file SRT trước');return;
 // ---- process ----
 $('go').onclick=async()=>{
   const cfg={
-    video:$('video').value.trim(),url:$('url').value.trim(),
+    video:$('video').value.trim(),url:$('url').value.trim(),cookies:cookieVal(),
     sub_source:$('sub_source').value,srt_path:$('srt_path').value.trim(),
     whisper_model:$('whisper_model').value,
     source_lang:$('source_lang').value,target_lang:$('target_lang').value,
@@ -432,7 +446,7 @@ $('dl_go').onclick=async()=>{
   const url=$('dl_url').value.trim();if(!url){alert('Nhập URL');return;}
   $('dl_log').textContent='Đang tải...';
   const d=await j('/api/download',{method:'POST',headers:{'Content-Type':'application/json'},
-    body:JSON.stringify({url,audio_only:$('dl_audio').checked})});
+    body:JSON.stringify({url,audio_only:$('dl_audio').checked,cookies:cookieVal()})});
   $('dl_log').textContent=d.ok?('✅ '+(d.file||'xong')):'❌ Tải thất bại (đã cài yt-dlp?)';
   loadDownloads();
 };
@@ -459,7 +473,7 @@ function fmtDur(s){s=parseInt(s||0);if(!s)return'';const m=Math.floor(s/60),ss=s
 $('hot_go').onclick=async()=>{
   const q=$('hot_q').value.trim();if(!q){alert('Nhập link/từ khoá');return;}
   $('hot_list').innerHTML='Đang tìm...';
-  const d=await j('/api/suggest_hot',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({query:q,limit:20})});
+  const d=await j('/api/suggest_hot',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({query:q,limit:20,cookies:cookieVal()})});
   if(!d.items||!d.items.length){$('hot_list').innerHTML='Không lấy được (thử dán link kênh/hashtag trực tiếp; nền tảng TQ có thể cần đăng nhập).';return;}
   $('hot_list').innerHTML=d.items.map((it,i)=>
     `<div class="dl-item"><span>${i+1}. ${(it.title||'').replace(/</g,'&lt;')}
@@ -474,7 +488,7 @@ function useUrl(url){$('url').value=url;$('video').value='';document.querySelect
 $('ch_go').onclick=async()=>{
   const url=$('ch_url').value.trim();if(!url){alert('Nhập URL kênh');return;}
   $('ch_list').innerHTML='Đang lấy...';
-  const d=await j('/api/channel_list',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({url,limit:15})});
+  const d=await j('/api/channel_list',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({url,limit:15,cookies:cookieVal()})});
   if(!d.items||!d.items.length){$('ch_list').innerHTML='Không lấy được (đã cài yt-dlp? URL đúng?).';return;}
   $('ch_list').innerHTML=d.items.map(it=>
     `<div class="dl-item"><span>${(it.title||'').replace(/</g,'&lt;')}</span>

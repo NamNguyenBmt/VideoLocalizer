@@ -112,7 +112,8 @@ class Handler(BaseHTTPRequestHandler):
             url = (body.get("url") or "").strip()
             if not url:
                 self._send(400, {"ok": False, "msg": "Thiếu URL."}); return
-            r = download.download(url, audio_only=bool(body.get("audio_only")))
+            r = download.download(url, audio_only=bool(body.get("audio_only")),
+                                  cookies_from_browser=body.get("cookies") or None)
             self._send(200, r)
         elif p == "/api/process":
             cfg = _cfg_from(body)
@@ -139,7 +140,8 @@ class Handler(BaseHTTPRequestHandler):
                 self._send(200, {"ok": False, "msg": str(e)})
         elif p == "/api/channel_list":
             items = download.list_channel((body.get("url") or "").strip(),
-                                          int(body.get("limit", 15)))
+                                          int(body.get("limit", 15)),
+                                          cookies_from_browser=body.get("cookies") or None)
             self._send(200, {"items": items})
         elif p == "/api/suggest_hot":
             items = download.suggest_hot((body.get("query") or "").strip(),

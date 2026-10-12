@@ -21,7 +21,7 @@ except Exception:
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import threading                                         # noqa: E402
 import time as _time                                    # noqa: E402
-from core import tools, download, tts, capcut, render, channel_crawler  # noqa: E402
+from core import tools, download, tts, capcut, render, channel_crawler, script_voice  # noqa: E402
 from core.pipeline import JobConfig                     # noqa: E402
 from core.queue import QUEUE                             # noqa: E402
 
@@ -98,6 +98,7 @@ def _cfg_from(body: dict) -> JobConfig:
             setattr(c, k, v)
     c.speed = float(body.get("speed", 1.0) or 1.0)
     c.zoom = float(body.get("zoom", 1.0) or 1.0)
+    c.fit_max_speed = float(body.get("fit_max_speed", 1.6) or 1.6)
     return c
 
 
@@ -191,6 +192,33 @@ class Handler(BaseHTTPRequestHandler):
                                      body.get("rate", "+0%"))
                 self._send(200, {"ok": True, "file": out,
                                  "media": "/api/media?path=" + _q(out)})
+            except Exception as e:
+                self._send(200, {"ok": False, "msg": str(e)})
+        elif p == "/api/script_voice":
+            try:
+                if (body.get("path") or "").strip():
+                    script = script_voice.load_script(body["path"].strip())
+                else:
+                    import tempfile
+                    raw = (body.get("text") or "").strip()
+                    if not raw:
+                        self._send(400, {"ok": False, "msg": "Nhập kịch bản hoặc đường dẫn."}); return
+                    ext = ".json" if raw[:1] in "[{" else ".txt"
+                    with tempfile.NamedTemporaryFile("w", suffix=ext, delete=False,
+                                                     encoding="utf-8") as f:
+                        f.write(raw)
+                    script = script_voice.load_script(f.name)
+                    script["title"] = body.get("name") or "kichban"
+                name = body.get("name") or script.get("title") or "kichban"
+                out_dir = str(tools.OUTPUT_DIR / f"{name}_voice")
+                tl = script_voice.build(script, out_dir, engine=body.get("engine") or None,
+                                        voice=body.get("voice") or None,
+                                        rate=body.get("rate") or None,
+                                        copy_to=(body.get("copy_to") or "").strip())
+                audio = str(Path(out_dir) / "voice.m4a")
+                self._send(200, {"ok": True, "dir": out_dir, "duration": tl["duration"],
+                                 "scenes": len(tl["scenes"]),
+                                 "media": "/api/media?path=" + _q(audio)})
             except Exception as e:
                 self._send(200, {"ok": False, "msg": str(e)})
         elif p == "/api/crawl_start":

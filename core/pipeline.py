@@ -38,6 +38,8 @@ class JobConfig:
     tts_voice2: str = "vi-VN-NamMinhNeural"   # giọng thứ 2 (nam) khi dual_voice
     dual_voice: bool = False            # 1 video 2 giọng (tách Nam/Nữ theo cao độ)
     tts_rate: str = "+0%"
+    fit_dub: bool = True                # tăng tốc câu đọc dài để không đè câu sau
+    fit_max_speed: float = 1.6
     piper_model: str = ""
     clone_ref_audio: str = ""
     clone_ref_text: str = ""
@@ -141,7 +143,8 @@ def run(cfg: JobConfig, log=print) -> dict:
                                   rate=cfg.tts_rate, model_onnx=piper_ref,
                                   ref_audio=cfg.clone_ref_audio,
                                   ref_text=cfg.clone_ref_text, voice_map=voice_map,
-                                  stem=stem, log=log)
+                                  stem=stem, fit=cfg.fit_dub,
+                                  fit_max_speed=cfg.fit_max_speed, log=log)
 
     result = {"ok": True, "src_srt": str(tools.OUTPUT_DIR / f"{stem}.src.srt"),
               "trans_srt": str(trans_srt), "dub": dub_audio,

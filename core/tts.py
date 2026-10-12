@@ -167,15 +167,61 @@ def assign_voices_by_pitch(video: str, cues: list[Cue], voice_female: str,
     return vmap
 
 
+def _atempo_chain(factor: float) -> str:
+    """ffmpeg atempo only accepts 0.5..2.0 per filter, so chain for larger factors."""
+    parts = []
+    while factor > 2.0:
+        parts.append("atempo=2.0")
+        factor /= 2.0
+    parts.append(f"atempo={factor:.4f}")
+    return ",".join(parts)
+
+
+def fit_to_window(path: str, window: float, max_speed=1.6, log=print) -> tuple[str, float]:
+    """Speed a clip up (pitch kept) so it fits in `window` seconds.
+
+    Never speeds up more than `max_speed`; returns (path, speed_applied).
+    """
+    dur = tools.probe(path)["duration"]
+    if window <= 0 or dur <= window + 0.02:
+        return path, 1.0
+    factor = min(dur / window, max_speed)
+    out = str(Path(path).with_name(Path(path).stem + "_fit" + Path(path).suffix))
+    cmd = [tools.ffmpeg(), "-y", "-v", "error", "-i", path,
+           "-filter:a", _atempo_chain(factor), out]
+    if tools.run(cmd, log) != 0 or not Path(out).exists():
+        return path, 1.0
+    return out, factor
+
+
+def _synth_one(text: str, engine: str, voice: str, rate: str, model_onnx: str,
+               ref_audio: str, ref_text: str, out: Path, log=print):
+    if engine == "edge":
+        _edge_one(text, voice, rate, out)
+    elif engine == "piper":
+        _piper_one(text, model_onnx, out, log)
+    elif engine == "clone":
+        _clone_one(text, ref_audio, ref_text, out, log)
+
+
 def synth_dub(cues: list[Cue], engine="edge", voice="vi-VN-HoaiMyNeural",
               rate="+0%", model_onnx="", ref_audio="", ref_text="",
-              voice_map=None, stem="dub", log=print) -> str | None:
+              voice_map=None, stem="dub", fit=True, fit_max_speed=1.6,
+              log=print) -> str | None:
+    """Dub every cue at its start time.
+
+    With `fit`, a clip longer than the time until the next cue starts (or the
+    cue's own end for the last one) is sped up so it doesn't overlap the next.
+    Also writes output/<stem>.durations.json (per-cue audio length, speed).
+    """
     if not cues:
         return None
     work = tools.WORK_DIR / (stem + "_parts")
     work.mkdir(parents=True, exist_ok=True)
     parts: list[tuple[float, str]] = []
-    for c in cues:
+    report = []
+    ordered = sorted(cues, key=lambda c: c.start)
+    for i, c in enumerate(ordered):
         text = (c.translated or c.text).strip()
         if not text:
             continue
@@ -183,28 +229,51 @@ def synth_dub(cues: list[Cue], engine="edge", voice="vi-VN-HoaiMyNeural",
         p = work / f"{c.index:04d}.{ext}"
         cue_voice = (voice_map or {}).get(c.index, voice)
         try:
-            if engine == "edge":
-                _edge_one(text, cue_voice, rate, p)
-            elif engine == "piper":
-                _piper_one(text, model_onnx, p, log)
-            elif engine == "clone":
-                _clone_one(text, ref_audio, ref_text, p, log)
-            if p.exists() and p.stat().st_size > 0:
-                parts.append((c.start, str(p)))
-                log(f"[TTS:{engine}] {c.index:>3} ✓")
+            _synth_one(text, engine, cue_voice, rate, model_onnx, ref_audio, ref_text, p, log)
+            if not (p.exists() and p.stat().st_size > 0):
+                continue
+            raw = tools.probe(str(p))["duration"]
+            nxt = ordered[i + 1].start if i + 1 < len(ordered) else None
+            window = (nxt if nxt is not None else max(c.end, c.start + raw)) - c.start
+            clip, speed = str(p), 1.0
+            if fit:
+                clip, speed = fit_to_window(str(p), window, fit_max_speed, log)
+            final = tools.probe(clip)["duration"] if speed != 1.0 else raw
+            parts.append((c.start, clip))
+            report.append({"index": c.index, "start": round(c.start, 3),
+                           "end": round(c.end, 3), "window": round(window, 3),
+                           "audio": round(raw, 3), "fitted": round(final, 3),
+                           "speed": round(speed, 3), "overflow": round(max(0.0, final - window), 3),
+                           "text": text})
+            note = f" (x{speed:.2f})" if speed != 1.0 else ""
+            if final > window + 0.05:
+                note += f" ⚠ vẫn dài hơn khung {final - window:.2f}s"
+            log(f"[TTS:{engine}] {c.index:>3} ✓{note}")
         except Exception as e:
             log(f"[TTS:{engine}] {c.index} lỗi: {e}")
     if not parts:
         return None
 
-    out = tools.WORK_DIR / (stem + ".m4a")
+    import json
+    (tools.OUTPUT_DIR / f"{stem}.durations.json").write_text(
+        json.dumps(report, ensure_ascii=False, indent=2), encoding="utf-8")
+
+    return mix_timeline(parts, str(tools.WORK_DIR / (stem + ".m4a")), log=log)
+
+
+def mix_timeline(parts: list[tuple[float, str]], out: str, total: float | None = None,
+                 log=print) -> str | None:
+    """Place each (start_seconds, clip) on a silent timeline and mix to `out`.
+
+    `total` pads/trims the result to an exact length (seconds)."""
     inputs, filt = [], []
     for i, (start, p) in enumerate(parts):
         inputs += ["-i", p]
         d = int(start * 1000)
         filt.append(f"[{i}:a]adelay={d}|{d}[a{i}]")
     mix = "".join(f"[a{i}]" for i in range(len(parts)))
-    filt.append(f"{mix}amix=inputs={len(parts)}:normalize=0[out]")
+    tail = f",apad=whole_dur={total:.3f},atrim=0:{total:.3f}" if total else ""
+    filt.append(f"{mix}amix=inputs={len(parts)}:normalize=0{tail}[out]")
     cmd = [tools.ffmpeg(), "-y", *inputs, "-filter_complex", ";".join(filt),
            "-map", "[out]", str(out)]
     if tools.run(cmd, log) != 0:

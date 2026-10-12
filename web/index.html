@@ -134,6 +134,7 @@
               <option value="+15%">Nhanh nhẹ</option><option value="+25%">Nhanh</option></select></div>
           <div><label>Giọng mẫu (clone)</label><input id="clone_ref_audio" placeholder="đường dẫn .wav mẫu"></div>
         </div>
+        <div class="chk"><input type="checkbox" id="fit_dub" checked><label>Tự tăng tốc câu đọc dài cho vừa khung (không đè câu sau)</label></div>
         <div class="chk"><input type="checkbox" id="keep_original_audio"><label>Giữ tiếng gốc nhỏ nền</label></div>
         <div class="chk"><input type="checkbox" id="denoise"><label>Khử ồn giọng (afftdn)</label></div>
         <label>Nhạc nền (tuỳ chọn, đường dẫn .mp3)</label><input id="bg_music" placeholder="E:\nhac\bg.mp3">
@@ -270,6 +271,21 @@
       <div id="st_out" class="hint"></div>
     </div>
     <div class="card">
+      <h2>Kịch bản → Giọng + timeline (Remotion)</h2>
+      <div class="hint">Đọc từng cảnh, đo độ dài thật, xếp nối tiếp nhau → <code>voice.m4a</code>,
+        <code>timeline.json</code>, <code>captions.srt</code>. Dùng giọng đang chọn ở Kho giọng đọc.</div>
+      <label>Đường dẫn kịch bản (.json / .srt / .txt) — hoặc dán nội dung bên dưới</label>
+      <input id="sv_path" placeholder="E:\video\kichban.json">
+      <textarea id="sv_text" rows="6" placeholder="Mỗi dòng 1 cảnh, hoặc dán JSON {&quot;scenes&quot;:[{&quot;text&quot;:&quot;...&quot;}]}"></textarea>
+      <div class="row">
+        <div><label>Tên dự án</label><input id="sv_name" placeholder="video01"></div>
+        <div><label>Chép vào public/ của Remotion (tuỳ chọn)</label><input id="sv_copy" placeholder="E:\remotion-template\public"></div>
+      </div>
+      <button class="act" id="sv_go" style="margin-top:8px">🎬 Tạo giọng + timeline</button>
+      <audio id="sv_audio" controls style="width:100%;margin-top:10px;display:none"></audio>
+      <div id="sv_out" class="hint"></div>
+    </div>
+    <div class="card">
       <h2>Kho giọng đọc <span class="pill" id="st_count"></span></h2>
       <input id="st_search" placeholder="🔎 Tìm giọng (vi, en, Nam/Nữ, tên...)">
       <select id="st_voice" size="16" style="margin-top:8px;height:360px"></select>
@@ -400,7 +416,7 @@ $('glossary').addEventListener('blur',()=>fetch('/api/glossary_save',{method:'PO
 const SETTING_IDS=['cookies','cookies_file','source_lang','target_lang','sub_source','whisper_model','translate_provider',
   'genre','dub_engine','tts_voice','tts_voice2','tts_rate','erase_mode','output',
   'dub','remove_bgm','keep_original_audio','denoise','burn_subs','karaoke','bilingual',
-  'erase_old_sub','mirror','dual_voice','make_thumb','speed','zoom','reframe'];
+  'erase_old_sub','mirror','dual_voice','fit_dub','make_thumb','speed','zoom','reframe'];
 function saveSettings(){const s={};SETTING_IDS.forEach(id=>{const el=$(id);if(!el)return;
   s[id]=el.type==='checkbox'?el.checked:el.value;});
   try{localStorage.setItem('vl_settings',JSON.stringify(s));}catch(e){}}
@@ -439,7 +455,7 @@ function buildProcessCfg(){
     translate_key:$('translate_key').value,glossary:$('glossary').value,
     remove_bgm:$('remove_bgm').checked,dub:$('dub').checked,dub_engine:$('dub_engine').value,
     tts_voice:$('tts_voice').value,tts_voice2:$('tts_voice2').value,dual_voice:$('dual_voice').checked,
-    tts_rate:$('tts_rate').value,
+    tts_rate:$('tts_rate').value,fit_dub:$('fit_dub').checked,
     clone_ref_audio:$('clone_ref_audio').value.trim(),
     keep_original_audio:$('keep_original_audio').checked,
     burn_subs:$('burn_subs').checked,karaoke:$('karaoke').checked,
@@ -567,6 +583,18 @@ $('st_go').onclick=async()=>{
   if(!d.ok){$('st_out').textContent='Lỗi: '+(d.msg||'');return;}
   $('st_audio').src=d.media;$('st_audio').style.display='block';$('st_audio').play();
   $('st_out').textContent='✅ '+d.file;
+};
+
+$('sv_go').onclick=async()=>{
+  const path=$('sv_path').value.trim(),text=$('sv_text').value.trim();
+  if(!path&&!text){alert('Nhập đường dẫn hoặc dán kịch bản');return;}
+  $('sv_out').textContent='Đang tạo giọng từng cảnh...';
+  const d=await j('/api/script_voice',{method:'POST',headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({path,text,name:$('sv_name').value.trim(),copy_to:$('sv_copy').value.trim(),
+      voice:$('st_voice').value||'',rate:$('st_rate').value})});
+  if(!d.ok){$('sv_out').textContent='Lỗi: '+(d.msg||'');return;}
+  $('sv_audio').src=d.media;$('sv_audio').style.display='block';
+  $('sv_out').textContent=`✅ ${d.scenes} cảnh · ${d.duration.toFixed(1)}s → ${d.dir}`;
 };
 
 // ---- clone ----

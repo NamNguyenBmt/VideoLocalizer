@@ -1,0 +1,14 @@
+{
+  "title": "Mẫu",
+  "fps": 30,
+  "width": 1080,
+  "height": 1920,
+  "duration": 9,
+  "audio": null,
+  "accent": "#28e0c8",
+  "scenes": [
+    { "layout": "title", "title": "3 mẹo dùng Remotion", "text": "Ba mẹo dùng Remotion tiết kiệm thời gian.", "start": 0.3, "end": 2.6, "duration": 2.3 },
+    { "layout": "list", "title": "Làm tiếng trước", "items": ["Viết kịch bản", "Tạo giọng", "Render hình"], "text": "Viết kịch bản, tạo giọng, rồi mới render hình.", "start": 2.95, "end": 5.6, "duration": 2.65 },
+    { "title": "Xong!", "text": "Hình luôn khớp với giọng đọc.", "start": 5.95, "end": 8.2, "duration": 2.25 }
+  ]
+}

@@ -1,5 +1,11 @@
 # VideoLocalizer
 
+![License](https://img.shields.io/badge/license-MIT-green)
+![Python](https://img.shields.io/badge/Python-3.11+-blue?logo=python&logoColor=white)
+![Platform](https://img.shields.io/badge/Windows-10%2F11-0078D6?logo=windows&logoColor=white)
+![UI](https://img.shields.io/badge/UI-web%20+%20desktop%20(.exe)-28e0c8)
+![OSS](https://img.shields.io/badge/100%25-open%20source-success)
+
 Công cụ **của riêng bạn** để bản địa hóa video hàng loạt — tải, nhận phụ đề, dịch, lồng tiếng và render,
 viết mới 100% từ thành phần mã nguồn mở. Bạn sở hữu toàn bộ mã, dùng vĩnh viễn, không license.
 

@@ -29,6 +29,16 @@ Màn hình xử lý chính (tải · phụ đề · dịch · lồng tiếng · 
 - 📤 **Xuất**: Render MP4 **hoặc** draft **CapCut** (hoặc cả hai)
 - 📊 **Hàng đợi batch**: xử lý nhiều video liên tiếp
 
+## Làm video bằng Remotion (tiếng trước, hình sau)
+Viết kịch bản → VideoLocalizer tạo `voice.m4a` + `timeline.json` (độ dài thật từng câu) →
+template Remotion trong `remotion-template/` tự canh cảnh theo giọng. Xem
+[remotion-template/README.md](remotion-template/README.md).
+```bat
+.venv\Scripts\python scripts\script_to_voice.py kichban.json --copy-to remotion-template\public
+```
+Khi lồng tiếng theo SRT, tool **tự tăng tốc** câu đọc dài (tối đa x1.6) để không đè câu sau và
+ghi `output/<tên>.durations.json` (độ dài, tốc độ, phần bị tràn của từng câu).
+
 ## Cài đặt từ Git (máy mới)
 ```bat
 git clone <repo-url> VideoLocalizer

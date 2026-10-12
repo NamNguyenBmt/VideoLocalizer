@@ -1,0 +1,17 @@
+{
+  "title": "video01",
+  "voice": "vi-VN-HoaiMyNeural",
+  "rate": "+0%",
+  "gap": 0.35,
+  "fps": 30,
+  "width": 1080,
+  "height": 1920,
+  "accent": "#28e0c8",
+  "scenes": [
+    { "layout": "title", "title": "3 mẹo dùng Remotion", "text": "Ba mẹo dùng Remotion giúp bạn tiết kiệm thời gian." },
+    { "layout": "list", "title": "Làm tiếng trước", "items": ["Viết kịch bản", "Tạo giọng", "Render hình"],
+      "text": "Đầu tiên viết kịch bản, sau đó tạo giọng, cuối cùng mới render hình." },
+    { "layout": "image", "image": "anh1.jpg", "title": "Dùng ảnh nền", "text": "Thả ảnh vào thư mục public rồi ghi tên file vào kịch bản." },
+    { "title": "Xong!", "text": "Hình luôn khớp với giọng đọc.", "pause": 0.6 }
+  ]
+}

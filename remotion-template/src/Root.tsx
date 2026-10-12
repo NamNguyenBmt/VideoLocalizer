@@ -1,6 +1,9 @@
 import { Composition, staticFile } from "remotion";
 import { Video } from "./Video";
 import type { Timeline } from "./types";
+import { loadFonts } from "./fonts";
+
+loadFonts();
 
 const FALLBACK: Timeline = {
   fps: 30, width: 1080, height: 1920, duration: 3, audio: null,

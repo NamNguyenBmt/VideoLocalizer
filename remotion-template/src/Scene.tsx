@@ -2,6 +2,7 @@ import {
   AbsoluteFill, Img, interpolate, spring, staticFile, useCurrentFrame, useVideoConfig,
 } from "remotion";
 import type { Scene, Timeline } from "./types";
+import { FONT_SANS } from "./util";
 
 const src = (p: string) => (/^https?:\/\//.test(p) ? p : staticFile(p));
 
@@ -31,7 +32,7 @@ export const SceneView: React.FC<{ scene: Scene; timeline: Timeline; speechFrom:
 
       <AbsoluteFill style={{
         justifyContent: layout === "title" ? "center" : "flex-start",
-        alignItems: "center", padding: "18% 8% 0", fontFamily: "Inter, Arial, sans-serif",
+        alignItems: "center", padding: "18% 8% 0", fontFamily: FONT_SANS,
       }}>
         {scene.title ? (
           <div style={{

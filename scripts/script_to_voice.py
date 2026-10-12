@@ -20,9 +20,12 @@ def main():
     ap.add_argument("--ref-audio", default="")
     ap.add_argument("--ref-text", default="")
     ap.add_argument("--copy-to", default="", help="chép kết quả vào public/ của Remotion")
+    ap.add_argument("--dry-run", action="store_true",
+                    help="không tạo giọng, chỉ ước lượng thời lượng để xem trước hình")
     a = ap.parse_args()
     script_voice.build_from_file(a.script, a.out, engine=a.engine, voice=a.voice, rate=a.rate,
-                                 ref_audio=a.ref_audio, ref_text=a.ref_text, copy_to=a.copy_to)
+                                 ref_audio=a.ref_audio, ref_text=a.ref_text, copy_to=a.copy_to,
+                                 dry_run=a.dry_run)
 
 
 if __name__ == "__main__":

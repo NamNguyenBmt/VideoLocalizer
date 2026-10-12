@@ -1,14 +1,2897 @@
 {
-  "title": "Mẫu",
+  "voice": "vi-VN-HoaiMyNeural",
+  "rate": "+0%",
+  "pitch": "+0Hz",
+  "engine": "edge",
+  "gap": 0.45,
   "fps": 30,
-  "width": 1080,
-  "height": 1920,
-  "duration": 9,
+  "width": 1920,
+  "height": 1080,
+  "title": "Hội thi Thiếu nhi tuyên truyền giới thiệu sách 2026 — THCS Hòa Phú",
+  "captions": true,
+  "showCues": false,
+  "accent": "#f2b544",
+  "bg": "#05070d",
+  "speakers": {
+    "vy": {
+      "name": "Tường Vy",
+      "voice": "vi-VN-HoaiMyNeural",
+      "rate": "-3%",
+      "pitch": "+0Hz",
+      "color": "#ff8fab"
+    },
+    "myanh": {
+      "name": "My Anh",
+      "voice": "vi-VN-HoaiMyNeural",
+      "rate": "+4%",
+      "pitch": "+14Hz",
+      "color": "#ffd166"
+    },
+    "huy": {
+      "name": "Đức Huy",
+      "voice": "vi-VN-NamMinhNeural",
+      "rate": "+0%",
+      "pitch": "+0Hz",
+      "color": "#5ee0c8"
+    },
+    "ca3": {
+      "name": "Cả ba",
+      "voice": "vi-VN-HoaiMyNeural",
+      "rate": "+0%",
+      "pitch": "+6Hz",
+      "color": "#ffffff"
+    },
+    "all": {
+      "name": "Cả đội",
+      "voice": "vi-VN-NamMinhNeural",
+      "rate": "+0%",
+      "pitch": "+8Hz",
+      "color": "#ffffff"
+    },
+    "goi": {
+      "name": "Tiếng gọi",
+      "voice": "vi-VN-NamMinhNeural",
+      "rate": "+8%",
+      "pitch": "+10Hz",
+      "color": "#ffb703"
+    },
+    "lop": {
+      "name": "Cả lớp",
+      "voice": "vi-VN-HoaiMyNeural",
+      "rate": "-6%",
+      "pitch": "+10Hz",
+      "color": "#bde0fe"
+    },
+    "thay": {
+      "name": "Thầy giáo",
+      "voice": "vi-VN-NamMinhNeural",
+      "rate": "-4%",
+      "pitch": "-6Hz",
+      "color": "#cdb4db"
+    }
+  },
   "audio": null,
-  "accent": "#28e0c8",
+  "duration": 1697.387,
   "scenes": [
-    { "layout": "title", "title": "3 mẹo dùng Remotion", "text": "Ba mẹo dùng Remotion tiết kiệm thời gian.", "start": 0.3, "end": 2.6, "duration": 2.3 },
-    { "layout": "list", "title": "Làm tiếng trước", "items": ["Viết kịch bản", "Tạo giọng", "Render hình"], "text": "Viết kịch bản, tạo giọng, rồi mới render hình.", "start": 2.95, "end": 5.6, "duration": 2.65 },
-    { "title": "Xong!", "text": "Hình luôn khớp với giọng đọc.", "start": 5.95, "end": 8.2, "duration": 2.25 }
+    {
+      "hold": 14,
+      "part": "Sắc màu Hòa Phú",
+      "visual": "taybac",
+      "music": "forest",
+      "fadein": true,
+      "cue": "LED: núi rừng Tây Bắc — mây — bản làng — ruộng bậc thang",
+      "start": 0.5,
+      "end": 14.5,
+      "duration": 14.0,
+      "speech": 0.0
+    },
+    {
+      "hold": 4.5,
+      "visual": "drum",
+      "music": "none",
+      "sfx": "drum3",
+      "led": {
+        "title": "TÙNG... TÙNG... TÙNG...",
+        "style": "drum"
+      },
+      "start": 14.95,
+      "end": 19.45,
+      "duration": 4.5,
+      "speech": 0.0
+    },
+    {
+      "speaker": "goi",
+      "text": "Mọi người ơi, đi chơi hội thôi!",
+      "visual": "festival",
+      "led": {
+        "title": "“Mọi người ơi, đi chơi hội thôi!”",
+        "sub": "Tiếng gọi bằng tiếng Thái",
+        "style": "call"
+      },
+      "start": 19.9,
+      "end": 22.13,
+      "duration": 2.23,
+      "speech": 2.23
+    },
+    {
+      "hold": 42,
+      "visual": "festival",
+      "music": "festival",
+      "section": {
+        "no": "1",
+        "title": "Hội về bản"
+      },
+      "cue": "13 bạn tràn vào sân khấu: múa Xòe · ném còn · đàn tính, khèn, sáo · giao lưu lễ hội",
+      "start": 22.58,
+      "end": 64.58,
+      "duration": 42.0,
+      "speech": 0.0
+    },
+    {
+      "hold": 4,
+      "visual": "stage",
+      "music": "none",
+      "sfx": "whoosh",
+      "cue": "13 bạn đóng băng — sân khấu tối dần, 3 bạn chính bước ra",
+      "start": 65.03,
+      "end": 69.03,
+      "duration": 4.0,
+      "speech": 0.0
+    },
+    {
+      "speaker": "vy",
+      "text": "Giữa đại ngàn Tây Bắc, mỗi bản làng mang một sắc màu riêng — sắc màu của núi rừng, văn hóa và tình người.",
+      "visual": "taybac",
+      "music": "warm",
+      "section": {
+        "no": "2",
+        "title": "Từ Tây Bắc đến Hòa Phú"
+      },
+      "start": 69.48,
+      "end": 76.636,
+      "duration": 7.156,
+      "speech": 7.156
+    },
+    {
+      "speaker": "vy",
+      "text": "Và từ những sắc màu ấy, chúng em muốn đưa quý vị về với một miền quê thân thương — nơi chúng em sinh ra, lớn lên và học tập.",
+      "visual": "hoaphu",
+      "start": 77.086,
+      "end": 85.788,
+      "duration": 8.702,
+      "speech": 8.702
+    },
+    {
+      "speaker": "vy",
+      "text": "Hòa Phú — quê hương chúng em.",
+      "big": true,
+      "pause": 1.0,
+      "start": 86.238,
+      "end": 88.652,
+      "duration": 2.414,
+      "speech": 2.414
+    },
+    {
+      "speaker": "myanh",
+      "text": "Xã Hòa Phú được thành lập theo Nghị quyết số 1660, ngày 16 tháng 6 năm 2025 của Ủy ban Thường vụ Quốc hội về việc sắp xếp các đơn vị hành chính cấp xã của tỉnh Đắk Lắk năm 2025,",
+      "section": {
+        "no": "3",
+        "title": "Hòa Phú — miền quê của những sắc màu"
+      },
+      "panel": {
+        "kind": "decree",
+        "title": "Nghị quyết số 1660/NQ-UBTVQH15",
+        "sub": "ngày 16/6/2025 của Ủy ban Thường vụ Quốc hội",
+        "lines": [
+          "Sắp xếp đơn vị hành chính cấp xã",
+          "tỉnh Đắk Lắk năm 2025"
+        ]
+      },
+      "start": 89.652,
+      "end": 100.118,
+      "duration": 10.466,
+      "speech": 10.466
+    },
+    {
+      "speaker": "myanh",
+      "text": "trên cơ sở sáp nhập toàn bộ diện tích tự nhiên, quy mô dân số của các xã: Hòa Phú cũ, Hòa Khánh và Hòa Xuân thuộc thành phố Buôn Ma Thuột cũ;",
+      "panel": {
+        "kind": "merge",
+        "items": [
+          "Hòa Phú (cũ)",
+          "Hòa Khánh",
+          "Hòa Xuân"
+        ],
+        "result": "XÃ HÒA PHÚ"
+      },
+      "start": 100.568,
+      "end": 109.471,
+      "duration": 8.903,
+      "speech": 8.903
+    },
+    {
+      "speaker": "myanh",
+      "text": "có diện tích tự nhiên 109,07 ki-lô-mét vuông, cách Trung tâm hành chính tỉnh Đắk Lắk 10 ki-lô-mét về hướng Tây Nam.",
+      "panel": {
+        "kind": "stats",
+        "items": [
+          {
+            "value": 109.07,
+            "decimals": 2,
+            "unit": "km²",
+            "label": "Diện tích tự nhiên"
+          },
+          {
+            "value": 10,
+            "unit": "km",
+            "label": "Cách trung tâm tỉnh — hướng Tây Nam"
+          }
+        ]
+      },
+      "start": 109.921,
+      "end": 115.999,
+      "duration": 6.078,
+      "speech": 6.078
+    },
+    {
+      "speaker": "myanh",
+      "text": "Phía Đông giáp phường Ea Kao; phía Tây giáp tỉnh Lâm Đồng; phía Nam giáp xã Ea Na; phía Bắc giáp phường Thành Nhất.",
+      "panel": {
+        "kind": "map",
+        "center": "HÒA PHÚ",
+        "n": "Phường Thành Nhất",
+        "e": "Phường Ea Kao",
+        "s": "Xã Ea Na",
+        "w": "Tỉnh Lâm Đồng"
+      },
+      "start": 116.449,
+      "end": 123.188,
+      "duration": 6.739,
+      "speech": 6.739
+    },
+    {
+      "speaker": "myanh",
+      "text": "Xã Hòa Phú có quy mô dân số lớn với 48.469 người, 11.427 hộ, sinh sống tại 12 thôn và 06 buôn.",
+      "panel": {
+        "kind": "stats",
+        "items": [
+          {
+            "value": 48469,
+            "unit": "người",
+            "label": "Dân số"
+          },
+          {
+            "value": 11427,
+            "unit": "hộ",
+            "label": "Số hộ"
+          },
+          {
+            "value": 12,
+            "unit": "thôn",
+            "label": "và 06 buôn"
+          }
+        ]
+      },
+      "start": 123.638,
+      "end": 130.076,
+      "duration": 6.438,
+      "speech": 6.438
+    },
+    {
+      "speaker": "myanh",
+      "text": "Địa bàn xã là nơi hội tụ của 12 dân tộc cùng sinh sống, trong đó đồng bào dân tộc thiểu số chiếm 12.191 người, 2.949 hộ.",
+      "panel": {
+        "kind": "stats",
+        "items": [
+          {
+            "value": 12,
+            "unit": "dân tộc",
+            "label": "cùng sinh sống"
+          },
+          {
+            "value": 12191,
+            "unit": "người",
+            "label": "đồng bào dân tộc thiểu số"
+          },
+          {
+            "value": 2949,
+            "unit": "hộ",
+            "label": "đồng bào dân tộc thiểu số"
+          }
+        ]
+      },
+      "start": 130.526,
+      "end": 138.166,
+      "duration": 7.64,
+      "speech": 7.64
+    },
+    {
+      "speaker": "myanh",
+      "text": "Về giáo dục, toàn xã có 08 trường học công lập, 05 trường tư thục.",
+      "panel": {
+        "kind": "stats",
+        "items": [
+          {
+            "value": 8,
+            "pad": 2,
+            "unit": "trường",
+            "label": "công lập"
+          },
+          {
+            "value": 5,
+            "pad": 2,
+            "unit": "trường",
+            "label": "tư thục"
+          }
+        ]
+      },
+      "start": 138.616,
+      "end": 143.012,
+      "duration": 4.396,
+      "speech": 4.396
+    },
+    {
+      "speaker": "myanh",
+      "text": "Từ những bản làng mang đậm sắc màu văn hóa, đến dòng Sêrêpốk, những cảnh quan thiên nhiên và những điểm đến như Buôn Tuôr... tất cả góp nên một Hòa Phú vừa bình dị, vừa giàu bản sắc.",
+      "panel": null,
+      "visual": "hoaphu",
+      "caption_hint": "Sêrêpốk · Buôn Tuôr",
+      "start": 143.462,
+      "end": 154.347,
+      "duration": 10.885,
+      "speech": 10.885
+    },
+    {
+      "speaker": "myanh",
+      "text": "Với chúng em, đó không chỉ là quê hương — mà là nơi mỗi con đường, mỗi mái nhà đều lưu giữ một phần tuổi thơ.",
+      "big": true,
+      "pause": 0.8,
+      "start": 154.797,
+      "end": 162.017,
+      "duration": 7.22,
+      "speech": 7.22
+    },
+    {
+      "speaker": "huy",
+      "text": "Và trên quê hương ấy, chúng em có một mái trường để học tập, trưởng thành và nuôi dưỡng ước mơ — Trường THCS Hòa Phú.",
+      "visual": "school",
+      "section": {
+        "no": "4",
+        "title": "Mái trường Hòa Phú"
+      },
+      "start": 162.817,
+      "end": 170.287,
+      "duration": 7.47,
+      "speech": 7.47
+    },
+    {
+      "speaker": "huy",
+      "text": "Được thành lập từ năm 1992, qua hơn ba thập kỷ xây dựng và trưởng thành, nhà trường luôn nỗ lực giữ gìn truyền thống dạy tốt — học tốt, đạt nhiều thành tích và được các cấp ngành Giáo dục ghi nhận, khen thưởng.",
+      "panel": {
+        "kind": "badge",
+        "value": "1992",
+        "title": "Năm thành lập",
+        "lines": [
+          "Dạy tốt — Học tốt",
+          "Hơn ba thập kỷ xây dựng & trưởng thành"
+        ]
+      },
+      "start": 170.737,
+      "end": 183.317,
+      "duration": 12.58,
+      "speech": 12.58
+    },
+    {
+      "speaker": "huy",
+      "text": "Dưới mái trường này, chúng em được học tập, rèn luyện, được trải nghiệm và tự tin bước về phía những ước mơ của mình.",
+      "panel": null,
+      "start": 183.767,
+      "end": 190.987,
+      "duration": 7.22,
+      "speech": 7.22
+    },
+    {
+      "speaker": "ca3",
+      "text": "Chúng em là những học sinh Hòa Phú!",
+      "big": true,
+      "pause": 1.0,
+      "start": 191.437,
+      "end": 193.867,
+      "duration": 2.43,
+      "speech": 2.43
+    },
+    {
+      "speaker": "huy",
+      "text": "Và trong hành trình trưởng thành ấy, có một người bạn luôn lặng thầm đồng hành cùng chúng em — những trang sách.",
+      "visual": "reading",
+      "music": "piano",
+      "section": {
+        "no": "5",
+        "title": "Sách và hành trình trưởng thành"
+      },
+      "start": 194.867,
+      "end": 201.407,
+      "duration": 6.54,
+      "speech": 6.54
+    },
+    {
+      "speaker": "huy",
+      "text": "Sách mở ra những chân trời rộng lớn, đưa chúng em đi xa hơn những gì mắt thấy, tai nghe; để từ những câu chuyện của người khác, chúng em hiểu hơn về cuộc sống, biết yêu thương, biết sẻ chia và biết trân trọng những điều mình đang có.",
+      "start": 201.857,
+      "end": 215.867,
+      "duration": 14.01,
+      "speech": 14.01
+    },
+    {
+      "speaker": "huy",
+      "text": "Đọc sách, vì thế, không chỉ để biết thêm một điều... mà còn để hiểu hơn một người, yêu hơn một cuộc đời và biết trân trọng hơn những gì mình đang có.",
+      "big": true,
+      "pause": 1.0,
+      "start": 216.317,
+      "end": 226.077,
+      "duration": 9.76,
+      "speech": 9.76
+    },
+    {
+      "speaker": "vy",
+      "text": "Từ ý nghĩa ấy, thực hiện Kế hoạch số 190 ngày 11 tháng 8 năm 2026 của Sở Văn hóa, Thể thao và Du lịch về tổ chức Hội thi Thiếu nhi tuyên truyền giới thiệu sách năm 2026, chúng em đến với Hội thi bằng tình yêu dành cho sách, cho quê hương và những giá trị tốt đẹp của cuộc sống.",
+      "visual": "contest",
+      "music": "warm",
+      "section": {
+        "no": "6",
+        "title": "Hội thi và chủ đề"
+      },
+      "panel": {
+        "kind": "card",
+        "title": "HỘI THI THIẾU NHI TUYÊN TRUYỀN GIỚI THIỆU SÁCH NĂM 2026",
+        "sub": "Kế hoạch số 190 ngày 11/8/2026 — Sở Văn hóa, Thể thao và Du lịch"
+      },
+      "start": 227.077,
+      "end": 244.464,
+      "duration": 17.387,
+      "speech": 17.387
+    },
+    {
+      "speaker": "vy",
+      "text": "Đặc biệt, với chủ đề “Công cha — Nghĩa mẹ — Ơn thầy”, Hội thi đã đưa chúng em trở về với những tình cảm thiêng liêng nhất: tình yêu của cha mẹ và ân nghĩa của thầy cô — những người đã chắp cánh cho chúng em trên hành trình trưởng thành.",
+      "panel": {
+        "kind": "theme",
+        "items": [
+          "Công cha",
+          "Nghĩa mẹ",
+          "Ơn thầy"
+        ]
+      },
+      "start": 244.914,
+      "end": 260.084,
+      "duration": 15.17,
+      "speech": 15.17
+    },
+    {
+      "speaker": "vy",
+      "text": "Và từ Trường THCS Hòa Phú, chúng em mang theo niềm tự hào của quê hương, tình yêu với sách và tất cả những tình cảm ấy để đến với Hội thi hôm nay.",
+      "panel": null,
+      "start": 260.534,
+      "end": 270.087,
+      "duration": 9.553,
+      "speech": 9.553
+    },
+    {
+      "speaker": "vy",
+      "text": "Em xin tự giới thiệu, em là Mai Nguyễn Tường Vy — học sinh lớp 9C, Đội trưởng.",
+      "visual": "stage",
+      "sfx": "chime",
+      "panel": {
+        "kind": "portrait",
+        "who": "vy",
+        "name": "MAI NGUYỄN TƯỜNG VY",
+        "role": "Đội trưởng · Lớp 9C"
+      },
+      "start": 270.537,
+      "end": 276.146,
+      "duration": 5.609,
+      "speech": 5.609
+    },
+    {
+      "speaker": "myanh",
+      "text": "Em là Phan Trần My Anh — học sinh lớp 9C.",
+      "sfx": "whoosh",
+      "panel": {
+        "kind": "portrait",
+        "who": "myanh",
+        "name": "PHAN TRẦN MY ANH",
+        "role": "Lớp 9C"
+      },
+      "start": 276.596,
+      "end": 279.85,
+      "duration": 3.254,
+      "speech": 3.254
+    },
+    {
+      "speaker": "huy",
+      "text": "Em là Phí Đức Huy, học sinh lớp 9E.",
+      "sfx": "whoosh",
+      "panel": {
+        "kind": "portrait",
+        "who": "huy",
+        "name": "PHÍ ĐỨC HUY",
+        "role": "Lớp 9E"
+      },
+      "start": 280.3,
+      "end": 283.16,
+      "duration": 2.86,
+      "speech": 2.86
+    },
+    {
+      "speaker": "vy",
+      "text": "Ba chúng em là những gương mặt đại diện cho...",
+      "panel": {
+        "kind": "trio"
+      },
+      "pause": 0.15,
+      "start": 283.61,
+      "end": 286.977,
+      "duration": 3.367,
+      "speech": 3.367
+    },
+    {
+      "speaker": "myanh",
+      "text": "...đội thi của Trường THCS Hòa Phú...",
+      "pause": 0.15,
+      "start": 287.127,
+      "end": 290.14,
+      "duration": 3.013,
+      "speech": 3.013
+    },
+    {
+      "speaker": "huy",
+      "text": "...và vinh dự đại diện cho xã Hòa Phú!",
+      "pause": 0.3,
+      "start": 290.29,
+      "end": 293.51,
+      "duration": 3.22,
+      "speech": 3.22
+    },
+    {
+      "speaker": "ca3",
+      "text": "Tham gia Hội thi “Thiếu nhi tuyên truyền giới thiệu sách năm 2026”.",
+      "big": true,
+      "pause": 0.3,
+      "start": 293.81,
+      "end": 297.49,
+      "duration": 3.68,
+      "speech": 3.68
+    },
+    {
+      "hold": 38,
+      "visual": "montage",
+      "music": "festival",
+      "sfx": "drum",
+      "panel": null,
+      "section": {
+        "no": "7",
+        "title": "13 bạn trở lại"
+      },
+      "cue": "TÙNG! 13 bạn trở lại — Xòe → ném còn → tạo hình → hội tụ, ba bạn chính ở giữa",
+      "start": 297.79,
+      "end": 335.79,
+      "duration": 38.0,
+      "speech": 0.0
+    },
+    {
+      "speaker": "vy",
+      "text": "Từ núi rừng...",
+      "visual": "emblem",
+      "music": "warm",
+      "section": {
+        "no": "8",
+        "title": "Hình ảnh kết"
+      },
+      "led": {
+        "title": "HÒA PHÚ",
+        "sub": "SẮC MÀU HỘI TỤ — NIỀM TỰ HÀO",
+        "style": "gold"
+      },
+      "pause": 0.15,
+      "start": 336.24,
+      "end": 337.803,
+      "duration": 1.563,
+      "speech": 1.563
+    },
+    {
+      "speaker": "myanh",
+      "text": "...từ quê hương...",
+      "led": {
+        "title": "HÒA PHÚ",
+        "sub": "SẮC MÀU HỘI TỤ — NIỀM TỰ HÀO",
+        "style": "gold"
+      },
+      "pause": 0.15,
+      "start": 337.953,
+      "end": 340.004,
+      "duration": 2.051,
+      "speech": 2.051
+    },
+    {
+      "speaker": "huy",
+      "text": "...từ mái trường...",
+      "led": {
+        "title": "HÒA PHÚ",
+        "sub": "SẮC MÀU HỘI TỤ — NIỀM TỰ HÀO",
+        "style": "gold"
+      },
+      "pause": 0.15,
+      "start": 340.154,
+      "end": 342.234,
+      "duration": 2.08,
+      "speech": 2.08
+    },
+    {
+      "speaker": "ca3",
+      "text": "...chúng em cùng hội tụ nơi đây. Chúng em — thiếu nhi Hòa Phú — xin kính chào Hội thi!",
+      "led": {
+        "title": "HÒA PHÚ",
+        "sub": "SẮC MÀU HỘI TỤ — NIỀM TỰ HÀO",
+        "style": "gold"
+      },
+      "start": 342.384,
+      "end": 348.894,
+      "duration": 6.51,
+      "speech": 6.51
+    },
+    {
+      "speaker": "all",
+      "text": "Hòa Phú — xin chào!",
+      "big": true,
+      "sfx": "drum",
+      "pause": 0.6,
+      "start": 349.344,
+      "end": 351.204,
+      "duration": 1.86,
+      "speech": 1.86
+    },
+    {
+      "hold": 6,
+      "cue": "13 bạn giơ đạo cụ: khăn Xòe, quả còn, sách, cờ — hoa văn chuyển thành biểu trưng xã Hòa Phú",
+      "start": 351.804,
+      "end": 357.804,
+      "duration": 6.0,
+      "speech": 0.0
+    },
+    {
+      "speaker": "vy",
+      "text": "Và từ đây, câu chuyện của chúng em xin được bắt đầu...",
+      "visual": "lamp",
+      "music": "none",
+      "pause": 1.2,
+      "start": 358.254,
+      "end": 362.317,
+      "duration": 4.063,
+      "speech": 4.063
+    },
+    {
+      "hold": 2,
+      "visual": "blackout",
+      "start": 363.517,
+      "end": 365.517,
+      "duration": 2.0,
+      "speech": 0.0
+    },
+    {
+      "hold": 6,
+      "visual": "partcard",
+      "music": "piano",
+      "sfx": "gong",
+      "led": {
+        "title": "PHẦN THI THỨ HAI",
+        "sub": "GIỚI THIỆU SÁCH",
+        "style": "part"
+      },
+      "start": 365.967,
+      "end": 371.967,
+      "duration": 6.0,
+      "speech": 0.0
+    },
+    {
+      "hold": 9,
+      "part": "Giới thiệu sách",
+      "visual": "road",
+      "music": "forest",
+      "section": {
+        "no": "I",
+        "title": "Những người mang ánh sáng đến nơi xa"
+      },
+      "cue": "Video mở đầu: cung đường đèo quanh co giữa núi rừng",
+      "start": 372.417,
+      "end": 381.417,
+      "duration": 9.0,
+      "speech": 0.0
+    },
+    {
+      "hold": 8,
+      "visual": "stream",
+      "cue": "Thầy cô vượt suối, đi đường đất đến trường",
+      "start": 381.867,
+      "end": 389.867,
+      "duration": 8.0,
+      "speech": 0.0
+    },
+    {
+      "hold": 8,
+      "visual": "hillclass",
+      "music": "piano",
+      "cue": "Những lớp học đơn sơ giữa núi rừng",
+      "start": 390.317,
+      "end": 398.317,
+      "duration": 8.0,
+      "speech": 0.0
+    },
+    {
+      "hold": 8,
+      "visual": "lampdesk",
+      "cue": "Thầy cô cặm cụi chuẩn bị bài",
+      "start": 398.767,
+      "end": 406.767,
+      "duration": 8.0,
+      "speech": 0.0
+    },
+    {
+      "hold": 8,
+      "visual": "teacherkids",
+      "cue": "Thầy cô và học trò vui vẻ bên nhau",
+      "start": 407.217,
+      "end": 415.217,
+      "duration": 8.0,
+      "speech": 0.0
+    },
+    {
+      "hold": 6,
+      "visual": "lamp",
+      "led": {
+        "title": "“Có những người mang ánh sáng đến những nơi xa nhất...”",
+        "style": "quote"
+      },
+      "start": 415.667,
+      "end": 421.667,
+      "duration": 6.0,
+      "speech": 0.0
+    },
+    {
+      "speaker": "vy",
+      "text": "Có những nơi ánh sáng điện chưa từng đủ đầy...",
+      "visual": "road",
+      "start": 422.117,
+      "end": 425.484,
+      "duration": 3.367,
+      "speech": 3.367
+    },
+    {
+      "speaker": "vy",
+      "text": "Có những con đường đến trường vẫn còn cheo leo qua núi, qua suối; có những lớp học nhỏ nằm giữa mênh mông núi rừng, nơi mỗi con chữ đến với học trò cũng bắt đầu từ những bước chân bền bỉ của người thầy, người cô.",
+      "start": 425.934,
+      "end": 439.197,
+      "duration": 13.263,
+      "speech": 13.263
+    },
+    {
+      "speaker": "vy",
+      "text": "Nhưng giữa những nơi tưởng như xa xôi ấy, vẫn có những con người lựa chọn ở lại.",
+      "visual": "hillclass",
+      "start": 439.647,
+      "end": 444.896,
+      "duration": 5.249,
+      "speech": 5.249
+    },
+    {
+      "speaker": "vy",
+      "text": "Họ mang theo hành trang giản dị là sách vở, phấn trắng, bảng đen và một niềm tin rất lớn: tin rằng giáo dục có thể thay đổi một cuộc đời.",
+      "big": "Giáo dục có thể thay đổi một cuộc đời.",
+      "start": 445.346,
+      "end": 454.306,
+      "duration": 8.96,
+      "speech": 8.96
+    },
+    {
+      "speaker": "huy",
+      "text": "Và đôi khi, một người thầy không chỉ mang ánh sáng của tri thức đến một ngôi trường.",
+      "visual": "lamp",
+      "start": 454.756,
+      "end": 459.866,
+      "duration": 5.11,
+      "speech": 5.11
+    },
+    {
+      "speaker": "huy",
+      "text": "Người thầy ấy có thể trở thành ánh sáng của cả một bản làng.",
+      "start": 460.316,
+      "end": 464.246,
+      "duration": 3.93,
+      "speech": 3.93
+    },
+    {
+      "speaker": "huy",
+      "text": "Có thể kiên nhẫn chờ một đứa trẻ lớn lên.",
+      "start": 464.696,
+      "end": 467.626,
+      "duration": 2.93,
+      "speech": 2.93
+    },
+    {
+      "speaker": "huy",
+      "text": "Có thể ở lại nơi núi rừng heo hút, khi những người khác đã trở về phố thị.",
+      "start": 468.076,
+      "end": 473.186,
+      "duration": 5.11,
+      "speech": 5.11
+    },
+    {
+      "speaker": "huy",
+      "text": "Và cũng có thể, bằng tình yêu thương âm thầm của mình, gieo vào lòng học trò một hạt giống của ước mơ, của lòng nhân ái và niềm tin vào tương lai.",
+      "start": 473.636,
+      "end": 482.856,
+      "duration": 9.22,
+      "speech": 9.22
+    },
+    {
+      "speaker": "myanh",
+      "text": "Đó cũng chính là điều chúng em bắt gặp khi mở những trang sách của “Người thắp đèn cho núi” — một tuyển tập gồm những câu chuyện viết về thầy cô, mái trường và những con người đã lặng lẽ dành tuổi trẻ của mình cho sự nghiệp gieo chữ.",
+      "visual": "book",
+      "start": 483.306,
+      "end": 496.356,
+      "duration": 13.05,
+      "speech": 13.05
+    },
+    {
+      "speaker": "myanh",
+      "text": "Mỗi câu chuyện là một lát cắt khác nhau.",
+      "start": 496.806,
+      "end": 499.399,
+      "duration": 2.593,
+      "speech": 2.593
+    },
+    {
+      "speaker": "myanh",
+      "text": "Nhưng phía sau những trang sách ấy, chúng em nhận ra một điểm chung:",
+      "start": 499.849,
+      "end": 503.824,
+      "duration": 3.975,
+      "speech": 3.975
+    },
+    {
+      "speaker": "myanh",
+      "text": "Có những người không chỉ dạy học trò đọc một trang sách, viết một con chữ... mà còn dạy các em cách bước đi trong cuộc đời.",
+      "big": true,
+      "pause": 1.0,
+      "start": 504.274,
+      "end": 511.914,
+      "duration": 7.64,
+      "speech": 7.64
+    },
+    {
+      "hold": 7.5,
+      "visual": "book",
+      "sfx": "chime",
+      "section": {
+        "no": "II",
+        "title": "Giới thiệu cuốn sách"
+      },
+      "led": {
+        "title": "NGƯỜI THẮP ĐÈN CHO NÚI",
+        "sub": "Nhiều tác giả · Nhà xuất bản Kim Đồng",
+        "style": "book"
+      },
+      "start": 512.914,
+      "end": 520.414,
+      "duration": 7.5,
+      "speech": 0.0
+    },
+    {
+      "speaker": "vy",
+      "text": "Cuốn sách “Người thắp đèn cho núi” do Nhà xuất bản Kim Đồng ấn hành là một tuyển tập gồm 23 câu chuyện về người thầy, người cô và những tình cảm đẹp đẽ trong hành trình giáo dục.",
+      "panel": {
+        "kind": "stats",
+        "items": [
+          {
+            "value": 23,
+            "unit": "câu chuyện",
+            "label": "về người thầy, người cô"
+          }
+        ],
+        "side": "left"
+      },
+      "start": 520.864,
+      "end": 531.526,
+      "duration": 10.662,
+      "speech": 10.662
+    },
+    {
+      "speaker": "vy",
+      "text": "Đó có thể là một người thầy nơi vùng cao.",
+      "panel": null,
+      "visual": "hillclass",
+      "start": 531.976,
+      "end": 534.983,
+      "duration": 3.007,
+      "speech": 3.007
+    },
+    {
+      "speaker": "vy",
+      "text": "Một cô giáo bên lớp học nhỏ.",
+      "start": 535.433,
+      "end": 537.667,
+      "duration": 2.234,
+      "speech": 2.234
+    },
+    {
+      "speaker": "vy",
+      "text": "Một người giáo viên đã nhiều năm tháng âm thầm đồng hành cùng học trò.",
+      "visual": "teacherkids",
+      "start": 538.117,
+      "end": 542.413,
+      "duration": 4.296,
+      "speech": 4.296
+    },
+    {
+      "speaker": "vy",
+      "text": "Hay đơn giản chỉ là một khoảnh khắc rất đời thường, nhưng đủ để một người học trò nhớ mãi về người đã từng dạy mình.",
+      "start": 542.863,
+      "end": 550.174,
+      "duration": 7.311,
+      "speech": 7.311
+    },
+    {
+      "speaker": "huy",
+      "text": "Tên gọi “Người thắp đèn cho núi” gợi cho chúng em một hình ảnh rất đẹp.",
+      "visual": "lamp",
+      "start": 550.624,
+      "end": 555.054,
+      "duration": 4.43,
+      "speech": 4.43
+    },
+    {
+      "speaker": "huy",
+      "text": "Đèn vốn để soi sáng.",
+      "start": 555.504,
+      "end": 557.184,
+      "duration": 1.68,
+      "speech": 1.68
+    },
+    {
+      "speaker": "huy",
+      "text": "Nhưng ánh sáng mà những người thầy mang đến không chỉ là ánh sáng của một ngọn đèn giữa núi rừng.",
+      "start": 557.634,
+      "end": 563.314,
+      "duration": 5.68,
+      "speech": 5.68
+    },
+    {
+      "speaker": "huy",
+      "text": "Đó là ánh sáng của tri thức.",
+      "big": true,
+      "pause": 0.2,
+      "start": 563.764,
+      "end": 565.944,
+      "duration": 2.18,
+      "speech": 2.18
+    },
+    {
+      "speaker": "huy",
+      "text": "Là ánh sáng của niềm tin.",
+      "big": true,
+      "pause": 0.2,
+      "start": 566.144,
+      "end": 568.074,
+      "duration": 1.93,
+      "speech": 1.93
+    },
+    {
+      "speaker": "huy",
+      "text": "Là ánh sáng giúp một đứa trẻ nhìn thấy con đường phía trước của chính mình.",
+      "big": true,
+      "start": 568.274,
+      "end": 572.704,
+      "duration": 4.43,
+      "speech": 4.43
+    },
+    {
+      "speaker": "huy",
+      "text": "Và có lẽ, cũng vì thế mà khi gấp lại cuốn sách, điều còn ở lại không chỉ là những câu chuyện, mà là một câu hỏi:",
+      "start": 573.154,
+      "end": 580.874,
+      "duration": 7.72,
+      "speech": 7.72
+    },
+    {
+      "speaker": "huy",
+      "text": "Ai đã thắp sáng những nơi xa xôi ấy?",
+      "big": true,
+      "pause": 1.0,
+      "start": 581.324,
+      "end": 584.004,
+      "duration": 2.68,
+      "speech": 2.68
+    },
+    {
+      "speaker": "myanh",
+      "text": "Câu trả lời nằm trong chính những trang sách.",
+      "visual": "book",
+      "start": 585.004,
+      "end": 587.597,
+      "duration": 2.593,
+      "speech": 2.593
+    },
+    {
+      "speaker": "myanh",
+      "text": "Đó là những người thầy, người cô đã chọn một hành trình không dễ dàng.",
+      "start": 588.047,
+      "end": 592.263,
+      "duration": 4.216,
+      "speech": 4.216
+    },
+    {
+      "speaker": "myanh",
+      "text": "Họ đến với học trò bằng tri thức, ở lại bằng tình yêu thương và tiếp tục bước đi bằng niềm tin.",
+      "start": 592.713,
+      "end": 598.611,
+      "duration": 5.898,
+      "speech": 5.898
+    },
+    {
+      "speaker": "myanh",
+      "text": "Trong số 23 câu chuyện của cuốn sách, chúng em muốn giới thiệu đến quý vị một câu chuyện đặc biệt — câu chuyện mang chính tên của cuốn sách:",
+      "start": 599.061,
+      "end": 607.063,
+      "duration": 8.002,
+      "speech": 8.002
+    },
+    {
+      "speaker": "myanh",
+      "text": "“Người thắp đèn cho núi” của nhà văn Lê Quang Trạng.",
+      "big": true,
+      "pause": 1.0,
+      "start": 607.513,
+      "end": 610.587,
+      "duration": 3.074,
+      "speech": 3.074
+    },
+    {
+      "hold": 7.5,
+      "visual": "taybac",
+      "music": "warm",
+      "section": {
+        "no": "III",
+        "title": "Dẫn vào câu chuyện"
+      },
+      "led": {
+        "title": "NGƯỜI THẮP ĐÈN CHO NÚI",
+        "sub": "Tác giả Lê Quang Trạng",
+        "style": "quote"
+      },
+      "start": 611.587,
+      "end": 619.087,
+      "duration": 7.5,
+      "speech": 0.0
+    },
+    {
+      "speaker": "vy",
+      "text": "Câu chuyện bắt đầu từ một người thầy trẻ.",
+      "visual": "road",
+      "start": 619.537,
+      "end": 622.287,
+      "duration": 2.75,
+      "speech": 2.75
+    },
+    {
+      "speaker": "vy",
+      "text": "Sau khi tốt nghiệp, thầy đến một vùng núi xa xôi. Ban đầu, đó chỉ là một chuyến đi mà thầy nghĩ rằng rồi sẽ có ngày mình trở về.",
+      "start": 622.737,
+      "end": 631.439,
+      "duration": 8.702,
+      "speech": 8.702
+    },
+    {
+      "speaker": "vy",
+      "text": "Nhưng núi rừng, mái trường nhỏ và những đứa trẻ nơi đây đã giữ chân thầy lại.",
+      "visual": "hillclass",
+      "start": 631.889,
+      "end": 636.88,
+      "duration": 4.991,
+      "speech": 4.991
+    },
+    {
+      "speaker": "vy",
+      "text": "Giữa một nơi còn nhiều thiếu thốn, thầy bắt đầu dạy học, chăm sóc học trò và tìm cách đưa những đứa trẻ đến với con chữ.",
+      "visual": "teacherkids",
+      "start": 637.33,
+      "end": 645.079,
+      "duration": 7.749,
+      "speech": 7.749
+    },
+    {
+      "speaker": "vy",
+      "text": "Rồi một đêm mưa...",
+      "visual": "rainnight",
+      "music": "rain",
+      "pause": 0.6,
+      "start": 645.529,
+      "end": 647.35,
+      "duration": 1.821,
+      "speech": 1.821
+    },
+    {
+      "speaker": "vy",
+      "text": "Một tiếng khóc trẻ thơ vang lên nơi hành lang trường học.",
+      "pause": 0.8,
+      "start": 647.95,
+      "end": 651.473,
+      "duration": 3.523,
+      "speech": 3.523
+    },
+    {
+      "hold": 10,
+      "visual": "rainnight",
+      "music": "rain",
+      "section": {
+        "no": "IV",
+        "title": "Hoạt cảnh 1 — Đứa trẻ trong đêm mưa"
+      },
+      "cue": "Thầy Đạm nghe tiếng trẻ khóc, ra hành lang, thấy chiếc giỏ có em bé và lá thư",
+      "start": 652.273,
+      "end": 662.273,
+      "duration": 10.0,
+      "speech": 0.0
+    },
+    {
+      "speaker": "myanh",
+      "text": "Đứa trẻ ấy được người mẹ sinh ra trong hoàn cảnh đặc biệt.",
+      "music": "tension",
+      "start": 662.723,
+      "end": 666.278,
+      "duration": 3.555,
+      "speech": 3.555
+    },
+    {
+      "speaker": "myanh",
+      "text": "Mẹ em là một cô gái mồ côi trong bản. Khi mới mười bảy tuổi, cô sinh con nhưng phong tục của bản làng không chấp nhận một đứa trẻ không có cha.",
+      "start": 666.728,
+      "end": 675.451,
+      "duration": 8.723,
+      "speech": 8.723
+    },
+    {
+      "speaker": "myanh",
+      "text": "Không biết phải làm gì khác, người mẹ buộc phải rời khỏi nơi mình sinh ra.",
+      "start": 675.901,
+      "end": 680.357,
+      "duration": 4.456,
+      "speech": 4.456
+    },
+    {
+      "speaker": "myanh",
+      "text": "Và trong một đêm mưa, cô để lại đứa con bé bỏng trước ngôi trường.",
+      "start": 680.807,
+      "end": 685.023,
+      "duration": 4.216,
+      "speech": 4.216
+    },
+    {
+      "speaker": "myanh",
+      "text": "Đứa trẻ ấy được người thầy đón nhận.",
+      "visual": "lampdesk",
+      "start": 685.473,
+      "end": 687.826,
+      "duration": 2.353,
+      "speech": 2.353
+    },
+    {
+      "speaker": "myanh",
+      "text": "Thầy đặt tên em là Hiếu.",
+      "big": true,
+      "pause": 0.6,
+      "start": 688.276,
+      "end": 690.148,
+      "duration": 1.872,
+      "speech": 1.872
+    },
+    {
+      "speaker": "myanh",
+      "text": "Từ khoảnh khắc ấy, cuộc đời của người thầy và cậu bé đã gắn vào nhau như hai con đường giữa núi rừng — lặng lẽ nhưng không thể tách rời.",
+      "pause": 0.8,
+      "start": 690.748,
+      "end": 698.99,
+      "duration": 8.242,
+      "speech": 8.242
+    },
+    {
+      "hold": 6,
+      "visual": "hillclass",
+      "music": "warm",
+      "section": {
+        "no": "V",
+        "title": "Hoạt cảnh 2 — Mười năm ở lại"
+      },
+      "cue": "Ngôi trường vùng cao — thầy giáo bên học sinh — Hiếu lớn dần",
+      "start": 699.79,
+      "end": 705.79,
+      "duration": 6.0,
+      "speech": 0.0
+    },
+    {
+      "speaker": "huy",
+      "text": "Thầy ở lại núi không phải một năm, hai năm...",
+      "start": 706.24,
+      "end": 709.71,
+      "duration": 3.47,
+      "speech": 3.47
+    },
+    {
+      "speaker": "huy",
+      "text": "Mà là hơn mười năm.",
+      "big": true,
+      "start": 710.16,
+      "end": 711.84,
+      "duration": 1.68,
+      "speech": 1.68
+    },
+    {
+      "speaker": "huy",
+      "text": "Hơn mười năm, thầy vừa dạy học, vừa chăm sóc Hiếu.",
+      "visual": "growup",
+      "start": 712.29,
+      "end": 715.83,
+      "duration": 3.54,
+      "speech": 3.54
+    },
+    {
+      "speaker": "huy",
+      "text": "Thầy nấu cơm, hái rau rừng, tìm lá thuốc.",
+      "start": 716.28,
+      "end": 719.32,
+      "duration": 3.04,
+      "speech": 3.04
+    },
+    {
+      "speaker": "huy",
+      "text": "Thầy đưa Hiếu đến trường.",
+      "start": 719.77,
+      "end": 721.45,
+      "duration": 1.68,
+      "speech": 1.68
+    },
+    {
+      "speaker": "huy",
+      "text": "Những ngày mưa, thầy cõng em trên lưng, lấy tấm nilon che cho cả hai thầy trò.",
+      "visual": "carry",
+      "start": 721.9,
+      "end": 726.94,
+      "duration": 5.04,
+      "speech": 5.04
+    },
+    {
+      "speaker": "huy",
+      "text": "Với Hiếu, thầy không chỉ là người dạy chữ.",
+      "visual": "growup",
+      "start": 727.39,
+      "end": 730.25,
+      "duration": 2.86,
+      "speech": 2.86
+    },
+    {
+      "speaker": "huy",
+      "text": "Thầy là người chăm sóc em từ những ngày đầu tiên.",
+      "start": 730.7,
+      "end": 733.88,
+      "duration": 3.18,
+      "speech": 3.18
+    },
+    {
+      "speaker": "huy",
+      "text": "Là người ở bên em khi em ốm đau.",
+      "start": 734.33,
+      "end": 737.01,
+      "duration": 2.68,
+      "speech": 2.68
+    },
+    {
+      "speaker": "huy",
+      "text": "Là người giải thích những câu hỏi mà một đứa trẻ luôn muốn biết:",
+      "start": 737.46,
+      "end": 741.39,
+      "duration": 3.93,
+      "speech": 3.93
+    },
+    {
+      "speaker": "huy",
+      "text": "“Mẹ con là ai?”",
+      "big": true,
+      "pause": 1.0,
+      "start": 741.84,
+      "end": 743.27,
+      "duration": 1.43,
+      "speech": 1.43
+    },
+    {
+      "hold": 8,
+      "cue": "Hoạt cảnh: Hiếu hỏi bằng cử chỉ, thầy xoa đầu em; hai thầy trò ăn cơm; thầy cõng Hiếu đi trong mưa",
+      "start": 744.27,
+      "end": 752.27,
+      "duration": 8.0,
+      "speech": 0.0
+    },
+    {
+      "speaker": "vy",
+      "text": "Khi còn nhỏ, Hiếu chưa hiểu hết câu chuyện của mình.",
+      "visual": "lampdesk",
+      "start": 752.72,
+      "end": 756.165,
+      "duration": 3.445,
+      "speech": 3.445
+    },
+    {
+      "speaker": "vy",
+      "text": "Em chỉ biết rằng mình có một người thầy luôn ở bên.",
+      "start": 756.615,
+      "end": 760.138,
+      "duration": 3.523,
+      "speech": 3.523
+    },
+    {
+      "speaker": "vy",
+      "text": "Thầy từng nói với Hiếu rằng:",
+      "start": 760.588,
+      "end": 762.564,
+      "duration": 1.976,
+      "speech": 1.976
+    },
+    {
+      "speaker": "vy",
+      "text": "“Thầy sinh ra tôi vào một bữa mưa đêm.”",
+      "big": true,
+      "pause": 0.8,
+      "start": 763.014,
+      "end": 765.764,
+      "duration": 2.75,
+      "speech": 2.75
+    },
+    {
+      "speaker": "vy",
+      "text": "Một cách nói giản dị của người thầy dành cho một đứa trẻ.",
+      "start": 766.564,
+      "end": 770.345,
+      "duration": 3.781,
+      "speech": 3.781
+    },
+    {
+      "speaker": "vy",
+      "text": "Nhưng đằng sau câu nói ấy là cả một tình thương sâu sắc.",
+      "start": 770.795,
+      "end": 774.576,
+      "duration": 3.781,
+      "speech": 3.781
+    },
+    {
+      "speaker": "vy",
+      "text": "Bởi thầy biết, có những sự thật không thể nói với một đứa trẻ khi em còn quá nhỏ.",
+      "start": 775.026,
+      "end": 780.533,
+      "duration": 5.507,
+      "speech": 5.507
+    },
+    {
+      "speaker": "vy",
+      "text": "Rồi Hiếu lớn lên.",
+      "visual": "growup",
+      "start": 780.983,
+      "end": 782.444,
+      "duration": 1.461,
+      "speech": 1.461
+    },
+    {
+      "speaker": "vy",
+      "text": "Em biết mình không phải trẻ mồ côi.",
+      "start": 782.894,
+      "end": 785.386,
+      "duration": 2.492,
+      "speech": 2.492
+    },
+    {
+      "speaker": "vy",
+      "text": "Em có thầy, có ông bà, có những người luôn yêu thương mình.",
+      "start": 785.836,
+      "end": 789.977,
+      "duration": 4.141,
+      "speech": 4.141
+    },
+    {
+      "speaker": "vy",
+      "text": "Và hơn hết, em bắt đầu có một ước mơ.",
+      "pause": 0.8,
+      "start": 790.427,
+      "end": 793.614,
+      "duration": 3.187,
+      "speech": 3.187
+    },
+    {
+      "hold": 5,
+      "visual": "dangtam",
+      "section": {
+        "no": "VI",
+        "title": "Hoạt cảnh 3 — Ước mơ của Hiếu và cây Đăng Tâm"
+      },
+      "start": 794.414,
+      "end": 799.414,
+      "duration": 5.0,
+      "speech": 0.0
+    },
+    {
+      "speaker": "myanh",
+      "text": "Hiếu học giỏi và nuôi ước mơ trở thành bác sĩ.",
+      "visual": "growup",
+      "dream": true,
+      "start": 799.864,
+      "end": 802.938,
+      "duration": 3.074,
+      "speech": 3.074
+    },
+    {
+      "speaker": "myanh",
+      "text": "Em muốn học nghề, rồi trở về chính nơi mình đã lớn lên để mở một phòng khám, chăm sóc sức khỏe cho người dân nơi núi rừng.",
+      "start": 803.388,
+      "end": 810.909,
+      "duration": 7.521,
+      "speech": 7.521
+    },
+    {
+      "speaker": "myanh",
+      "text": "Còn người thầy vẫn âm thầm với một hành trình khác.",
+      "visual": "dangtam",
+      "start": 811.359,
+      "end": 814.433,
+      "duration": 3.074,
+      "speech": 3.074
+    },
+    {
+      "speaker": "myanh",
+      "text": "Thầy nhiều năm tìm kiếm cây Đăng Tâm — một loài cây quý của núi rừng.",
+      "start": 814.883,
+      "end": 819.339,
+      "duration": 4.456,
+      "speech": 4.456
+    },
+    {
+      "speaker": "myanh",
+      "text": "Thầy tìm, trồng và chăm sóc cây.",
+      "start": 819.789,
+      "end": 822.082,
+      "duration": 2.293,
+      "speech": 2.293
+    },
+    {
+      "speaker": "myanh",
+      "text": "Đăng Tâm dần trở thành biểu tượng cho niềm tin của thầy.",
+      "start": 822.532,
+      "end": 825.847,
+      "duration": 3.315,
+      "speech": 3.315
+    },
+    {
+      "speaker": "myanh",
+      "text": "Niềm tin rằng nếu con người biết yêu thương nhau, biết mở lòng với nhau, thì ngay cả nơi khắc nghiệt nhất cũng có thể nảy mầm sự sống.",
+      "big": true,
+      "pause": 0.8,
+      "start": 826.297,
+      "end": 834.058,
+      "duration": 7.761,
+      "speech": 7.761
+    },
+    {
+      "hold": 8,
+      "cue": "Hoạt cảnh: thầy trồng, chăm cây — Hiếu đọc sách y khoa — cây Đăng Tâm lớn dần",
+      "start": 834.858,
+      "end": 842.858,
+      "duration": 8.0,
+      "speech": 0.0
+    },
+    {
+      "speaker": "huy",
+      "text": "Và rồi ngày Hiếu hoàn thành kỳ thi cuối cấp cũng đến.",
+      "visual": "hillclass",
+      "start": 843.308,
+      "end": 846.738,
+      "duration": 3.43,
+      "speech": 3.43
+    },
+    {
+      "speaker": "huy",
+      "text": "Những đứa trẻ nơi núi rừng lần lượt đạt kết quả tốt.",
+      "start": 847.188,
+      "end": 850.618,
+      "duration": 3.43,
+      "speech": 3.43
+    },
+    {
+      "speaker": "huy",
+      "text": "Những ước mơ bắt đầu mở ra.",
+      "start": 851.068,
+      "end": 853.248,
+      "duration": 2.18,
+      "speech": 2.18
+    },
+    {
+      "speaker": "huy",
+      "text": "Có lẽ người thầy đã nghĩ rằng, sau bao nhiêu năm tháng, cuối cùng những hạt giống mình gieo xuống cũng đã bắt đầu nảy mầm.",
+      "visual": "dangtam",
+      "start": 853.698,
+      "end": 860.988,
+      "duration": 7.29,
+      "speech": 7.29
+    },
+    {
+      "speaker": "huy",
+      "text": "Nhưng đúng vào lúc ấy...",
+      "music": "none",
+      "pause": 0.8,
+      "start": 861.438,
+      "end": 863.478,
+      "duration": 2.04,
+      "speech": 2.04
+    },
+    {
+      "speaker": "huy",
+      "text": "Một người phụ nữ xuất hiện.",
+      "visual": "cityroad",
+      "music": "tension",
+      "start": 864.278,
+      "end": 866.208,
+      "duration": 1.93,
+      "speech": 1.93
+    },
+    {
+      "speaker": "huy",
+      "text": "Một người phụ nữ mà Hiếu chưa từng biết mặt.",
+      "start": 866.658,
+      "end": 869.588,
+      "duration": 2.93,
+      "speech": 2.93
+    },
+    {
+      "speaker": "huy",
+      "text": "Mẹ của Hiếu đã trở về.",
+      "big": true,
+      "pause": 1.0,
+      "start": 870.038,
+      "end": 871.968,
+      "duration": 1.93,
+      "speech": 1.93
+    },
+    {
+      "hold": 10,
+      "visual": "mother",
+      "section": {
+        "no": "VII",
+        "title": "Hoạt cảnh 4 — Người mẹ trở về"
+      },
+      "cue": "Người mẹ đứng từ xa nhìn Hiếu, xúc động tiến lại ôm em — Hiếu bất ngờ lùi lại",
+      "start": 872.968,
+      "end": 882.968,
+      "duration": 10.0,
+      "speech": 0.0
+    },
+    {
+      "speaker": "vy",
+      "text": "Mười tám năm.",
+      "big": true,
+      "pause": 0.5,
+      "start": 883.418,
+      "end": 884.621,
+      "duration": 1.203,
+      "speech": 1.203
+    },
+    {
+      "speaker": "vy",
+      "text": "Đó là khoảng thời gian một người mẹ đã xa con.",
+      "start": 885.121,
+      "end": 888.386,
+      "duration": 3.265,
+      "speech": 3.265
+    },
+    {
+      "speaker": "vy",
+      "text": "Khi trở về, người mẹ ấy mang theo nỗi đau của một người từng buộc phải rời bỏ đứa con mình sinh ra.",
+      "start": 888.836,
+      "end": 895.374,
+      "duration": 6.538,
+      "speech": 6.538
+    },
+    {
+      "speaker": "vy",
+      "text": "Nhưng với Hiếu...",
+      "start": 895.824,
+      "end": 897.387,
+      "duration": 1.563,
+      "speech": 1.563
+    },
+    {
+      "speaker": "vy",
+      "text": "Đó lại là lần đầu tiên em nhìn thấy mẹ.",
+      "start": 897.837,
+      "end": 900.844,
+      "duration": 3.007,
+      "speech": 3.007
+    },
+    {
+      "speaker": "vy",
+      "text": "Em không nhận ra người phụ nữ trước mặt.",
+      "start": 901.294,
+      "end": 904.044,
+      "duration": 2.75,
+      "speech": 2.75
+    },
+    {
+      "speaker": "vy",
+      "text": "Em bối rối.",
+      "start": 904.494,
+      "end": 905.697,
+      "duration": 1.203,
+      "speech": 1.203
+    },
+    {
+      "speaker": "vy",
+      "text": "Em hoang mang.",
+      "start": 906.147,
+      "end": 907.35,
+      "duration": 1.203,
+      "speech": 1.203
+    },
+    {
+      "speaker": "vy",
+      "text": "Và em lùi lại trước vòng tay mà mình chưa từng được biết đến.",
+      "start": 907.8,
+      "end": 911.838,
+      "duration": 4.038,
+      "speech": 4.038
+    },
+    {
+      "speaker": "vy",
+      "text": "Người mẹ đau đớn.",
+      "start": 912.288,
+      "end": 913.749,
+      "duration": 1.461,
+      "speech": 1.461
+    },
+    {
+      "speaker": "vy",
+      "text": "Bởi với một người mẹ, có lẽ điều xót xa nhất không phải là con trách mình...",
+      "start": 914.199,
+      "end": 919.55,
+      "duration": 5.351,
+      "speech": 5.351
+    },
+    {
+      "speaker": "vy",
+      "text": "Mà là con không nhận ra mình.",
+      "big": true,
+      "pause": 1.0,
+      "start": 920.0,
+      "end": 922.234,
+      "duration": 2.234,
+      "speech": 2.234
+    },
+    {
+      "hold": 9,
+      "cue": "Hoạt cảnh: mẹ khóc — thầy nhẹ nhàng hướng Hiếu về phía mẹ — mẹ rời đi trong đêm",
+      "start": 923.234,
+      "end": 932.234,
+      "duration": 9.0,
+      "speech": 0.0
+    },
+    {
+      "hold": 4,
+      "visual": "vigil",
+      "section": {
+        "no": "VIII",
+        "title": "Hoạt cảnh 5 — Sự lựa chọn đau đớn"
+      },
+      "start": 932.684,
+      "end": 936.684,
+      "duration": 4.0,
+      "speech": 0.0
+    },
+    {
+      "speaker": "huy",
+      "text": "Đêm ấy, người thầy không ngủ.",
+      "start": 937.134,
+      "end": 939.244,
+      "duration": 2.11,
+      "speech": 2.11
+    },
+    {
+      "speaker": "huy",
+      "text": "Bởi thầy hiểu rằng, trong khoảnh khắc này, Hiếu đang đứng trước một sự thay đổi rất lớn của cuộc đời.",
+      "start": 939.694,
+      "end": 945.734,
+      "duration": 6.04,
+      "speech": 6.04
+    },
+    {
+      "speaker": "huy",
+      "text": "Một bên là người mẹ đã sinh ra em.",
+      "panel": {
+        "kind": "scale",
+        "left": "Người mẹ đã sinh ra em",
+        "right": "Núi rừng · mái trường · người thầy"
+      },
+      "start": 946.184,
+      "end": 948.864,
+      "duration": 2.68,
+      "speech": 2.68
+    },
+    {
+      "speaker": "huy",
+      "text": "Một bên là núi rừng, mái trường và người thầy đã nuôi dưỡng em suốt mười tám năm.",
+      "start": 949.314,
+      "end": 954.424,
+      "duration": 5.11,
+      "speech": 5.11
+    },
+    {
+      "speaker": "huy",
+      "text": "Nhưng người thầy không giữ Hiếu lại cho riêng mình.",
+      "panel": null,
+      "start": 954.874,
+      "end": 957.804,
+      "duration": 2.93,
+      "speech": 2.93
+    },
+    {
+      "speaker": "huy",
+      "text": "Thầy hiểu rằng công ơn sinh thành là điều không thể thay thế.",
+      "start": 958.254,
+      "end": 961.934,
+      "duration": 3.68,
+      "speech": 3.68
+    },
+    {
+      "speaker": "huy",
+      "text": "Vì thế, sáng hôm sau, thầy nói với Hiếu rằng:",
+      "visual": "sunrise",
+      "music": "piano",
+      "start": 962.384,
+      "end": 965.674,
+      "duration": 3.29,
+      "speech": 3.29
+    },
+    {
+      "speaker": "huy",
+      "text": "“Ai cũng phải có cha có mẹ. Công ơn sinh thành không có gì sánh bằng đâu con.”",
+      "big": true,
+      "pause": 1.0,
+      "start": 966.124,
+      "end": 971.234,
+      "duration": 5.11,
+      "speech": 5.11
+    },
+    {
+      "speaker": "huy",
+      "text": "Và thầy khuyên Hiếu hãy nhận mẹ.",
+      "start": 972.234,
+      "end": 974.414,
+      "duration": 2.18,
+      "speech": 2.18
+    },
+    {
+      "speaker": "huy",
+      "text": "Không phải vì thầy muốn rời xa Hiếu.",
+      "start": 974.864,
+      "end": 977.294,
+      "duration": 2.43,
+      "speech": 2.43
+    },
+    {
+      "speaker": "huy",
+      "text": "Mà bởi thầy muốn Hiếu có một tương lai rộng mở hơn.",
+      "start": 977.744,
+      "end": 981.174,
+      "duration": 3.43,
+      "speech": 3.43
+    },
+    {
+      "speaker": "huy",
+      "text": "Thầy nói với Hiếu hãy theo mẹ về phố, nơi em có thể học ngành nghề mà mình yêu thích.",
+      "start": 981.624,
+      "end": 987.234,
+      "duration": 5.61,
+      "speech": 5.61
+    },
+    {
+      "speaker": "huy",
+      "text": "Đó là một lời khuyên rất đau lòng.",
+      "start": 987.684,
+      "end": 990.114,
+      "duration": 2.43,
+      "speech": 2.43
+    },
+    {
+      "speaker": "huy",
+      "text": "Bởi đôi khi, yêu thương một người không phải là giữ người ấy ở lại bên mình.",
+      "start": 990.564,
+      "end": 995.424,
+      "duration": 4.86,
+      "speech": 4.86
+    },
+    {
+      "speaker": "huy",
+      "text": "Mà là đủ yêu thương để cho người ấy được bước tiếp.",
+      "big": true,
+      "pause": 1.0,
+      "start": 995.874,
+      "end": 999.304,
+      "duration": 3.43,
+      "speech": 3.43
+    },
+    {
+      "hold": 14,
+      "visual": "fall",
+      "music": "tension",
+      "cue": "Hoạt cảnh: Hiếu khóc, chạy về phía chân núi — thầy đuổi theo, trượt ngã — Hiếu quay lại dìu thầy",
+      "start": 1000.304,
+      "end": 1014.304,
+      "duration": 14.0,
+      "speech": 0.0
+    },
+    {
+      "hold": 5,
+      "visual": "farewell",
+      "music": "warm",
+      "section": {
+        "no": "IX",
+        "title": "Hoạt cảnh 7 — Cuộc chia tay dưới chân núi"
+      },
+      "start": 1014.754,
+      "end": 1019.754,
+      "duration": 5.0,
+      "speech": 0.0
+    },
+    {
+      "speaker": "vy",
+      "text": "Ngày Hiếu rời núi đã đến.",
+      "start": 1020.204,
+      "end": 1022.18,
+      "duration": 1.976,
+      "speech": 1.976
+    },
+    {
+      "speaker": "vy",
+      "text": "Bạn bè đứng bên đường.",
+      "start": 1022.63,
+      "end": 1024.349,
+      "duration": 1.719,
+      "speech": 1.719
+    },
+    {
+      "speaker": "vy",
+      "text": "Người dân trong bản đứng đó.",
+      "start": 1024.799,
+      "end": 1026.775,
+      "duration": 1.976,
+      "speech": 1.976
+    },
+    {
+      "speaker": "vy",
+      "text": "Những đứa trẻ mà thầy đã từng dạy đứng đó.",
+      "start": 1027.225,
+      "end": 1030.232,
+      "duration": 3.007,
+      "speech": 3.007
+    },
+    {
+      "speaker": "vy",
+      "text": "Và người thầy — người đã dành hơn mười năm cuộc đời mình cho núi rừng — cũng đứng đó.",
+      "start": 1030.682,
+      "end": 1036.627,
+      "duration": 5.945,
+      "speech": 5.945
+    },
+    {
+      "speaker": "vy",
+      "text": "Thầy không níu kéo.",
+      "start": 1037.077,
+      "end": 1038.538,
+      "duration": 1.461,
+      "speech": 1.461
+    },
+    {
+      "speaker": "vy",
+      "text": "Thầy chỉ trao cho Hiếu một chiếc túi nhỏ.",
+      "visual": "seeds",
+      "start": 1038.988,
+      "end": 1041.738,
+      "duration": 2.75,
+      "speech": 2.75
+    },
+    {
+      "speaker": "vy",
+      "text": "Bên trong là những hạt giống của cây Đăng Tâm.",
+      "start": 1042.188,
+      "end": 1045.195,
+      "duration": 3.007,
+      "speech": 3.007
+    },
+    {
+      "speaker": "vy",
+      "text": "Và thầy nói với em:",
+      "start": 1045.645,
+      "end": 1047.364,
+      "duration": 1.719,
+      "speech": 1.719
+    },
+    {
+      "speaker": "vy",
+      "text": "“Cây Đăng Tâm đã ra trái rồi đó con.”",
+      "big": true,
+      "pause": 1.0,
+      "start": 1047.814,
+      "end": 1050.564,
+      "duration": 2.75,
+      "speech": 2.75
+    },
+    {
+      "hold": 16,
+      "visual": "farewell",
+      "cue": "Hoạt cảnh: Hiếu nhận túi, ôm thầy rồi theo mẹ xuống núi — thầy đứng nhìn theo — Hiếu quay lại nhìn thầy lần cuối",
+      "start": 1051.564,
+      "end": 1067.564,
+      "duration": 16.0,
+      "speech": 0.0
+    },
+    {
+      "speaker": "huy",
+      "text": "Có những cuộc chia tay không cần quá nhiều lời.",
+      "start": 1068.014,
+      "end": 1070.944,
+      "duration": 2.93,
+      "speech": 2.93
+    },
+    {
+      "speaker": "huy",
+      "text": "Bởi giữa người thầy và người học trò ấy đã có hơn mười năm của những ngày mưa, những bữa cơm, những buổi học, những con đường đến lớp và cả những ước mơ được vun đắp từng ngày.",
+      "start": 1071.394,
+      "end": 1082.114,
+      "duration": 10.72,
+      "speech": 10.72
+    },
+    {
+      "speaker": "huy",
+      "text": "Hiếu xuống núi để đi tiếp con đường của mình.",
+      "start": 1082.564,
+      "end": 1085.494,
+      "duration": 2.93,
+      "speech": 2.93
+    },
+    {
+      "speaker": "huy",
+      "text": "Còn người thầy vẫn ở lại.",
+      "visual": "lamp",
+      "start": 1085.944,
+      "end": 1087.874,
+      "duration": 1.93,
+      "speech": 1.93
+    },
+    {
+      "speaker": "huy",
+      "text": "Ở lại với núi.",
+      "start": 1088.324,
+      "end": 1089.754,
+      "duration": 1.43,
+      "speech": 1.43
+    },
+    {
+      "speaker": "huy",
+      "text": "Với học trò.",
+      "start": 1090.204,
+      "end": 1091.384,
+      "duration": 1.18,
+      "speech": 1.18
+    },
+    {
+      "speaker": "huy",
+      "text": "Với cây Đăng Tâm.",
+      "start": 1091.834,
+      "end": 1093.264,
+      "duration": 1.43,
+      "speech": 1.43
+    },
+    {
+      "speaker": "huy",
+      "text": "Và với ánh sáng mà thầy đã dành cả tuổi trẻ để thắp lên.",
+      "big": true,
+      "pause": 1.0,
+      "start": 1093.714,
+      "end": 1097.644,
+      "duration": 3.93,
+      "speech": 3.93
+    },
+    {
+      "hold": 4,
+      "visual": "book",
+      "music": "piano",
+      "section": {
+        "no": "X",
+        "title": "Trở lại với cuốn sách"
+      },
+      "start": 1098.644,
+      "end": 1102.644,
+      "duration": 4.0,
+      "speech": 0.0
+    },
+    {
+      "speaker": "myanh",
+      "text": "Nhưng câu chuyện về người thầy ấy không khép lại khi Hiếu rời núi.",
+      "start": 1103.094,
+      "end": 1106.889,
+      "duration": 3.795,
+      "speech": 3.795
+    },
+    {
+      "speaker": "myanh",
+      "text": "Bởi những hạt giống Đăng Tâm mà Hiếu mang theo chính là ký ức về nơi em đã lớn lên.",
+      "visual": "seeds",
+      "start": 1107.339,
+      "end": 1112.577,
+      "duration": 5.238,
+      "speech": 5.238
+    },
+    {
+      "speaker": "myanh",
+      "text": "Mỗi khi mệt mỏi, em mở chiếc túi nhỏ ấy.",
+      "start": 1113.027,
+      "end": 1116.041,
+      "duration": 3.014,
+      "speech": 3.014
+    },
+    {
+      "speaker": "myanh",
+      "text": "Và hơi ấm của núi rừng lại trở về.",
+      "start": 1116.491,
+      "end": 1119.084,
+      "duration": 2.593,
+      "speech": 2.593
+    },
+    {
+      "speaker": "myanh",
+      "text": "Hình ảnh người thầy, bạn bè, mái trường và những năm tháng tuổi thơ lại hiện lên.",
+      "visual": "teacherkids",
+      "start": 1119.534,
+      "end": 1124.411,
+      "duration": 4.877,
+      "speech": 4.877
+    },
+    {
+      "speaker": "myanh",
+      "text": "Để Hiếu nhớ rằng:",
+      "start": 1124.861,
+      "end": 1126.253,
+      "duration": 1.392,
+      "speech": 1.392
+    },
+    {
+      "speaker": "myanh",
+      "text": "Có một người đã từng tin vào em.",
+      "big": true,
+      "pause": 0.2,
+      "start": 1126.703,
+      "end": 1129.056,
+      "duration": 2.353,
+      "speech": 2.353
+    },
+    {
+      "speaker": "myanh",
+      "text": "Có một người đã từng cõng em qua những ngày mưa.",
+      "big": true,
+      "pause": 0.2,
+      "start": 1129.256,
+      "end": 1132.33,
+      "duration": 3.074,
+      "speech": 3.074
+    },
+    {
+      "speaker": "myanh",
+      "text": "Có một người đã dành cả tuổi trẻ để cho em một tương lai.",
+      "big": true,
+      "pause": 0.8,
+      "start": 1132.53,
+      "end": 1136.325,
+      "duration": 3.795,
+      "speech": 3.795
+    },
+    {
+      "speaker": "vy",
+      "text": "Và đó cũng là điều mà chúng em cảm nhận được từ “Người thắp đèn cho núi”.",
+      "visual": "book",
+      "start": 1137.125,
+      "end": 1141.936,
+      "duration": 4.811,
+      "speech": 4.811
+    },
+    {
+      "speaker": "vy",
+      "text": "Hai mươi ba câu chuyện.",
+      "start": 1142.386,
+      "end": 1144.105,
+      "duration": 1.719,
+      "speech": 1.719
+    },
+    {
+      "speaker": "vy",
+      "text": "Hai mươi ba lát cắt khác nhau.",
+      "start": 1144.555,
+      "end": 1146.789,
+      "duration": 2.234,
+      "speech": 2.234
+    },
+    {
+      "speaker": "vy",
+      "text": "Nhưng cùng gặp nhau ở một điều rất đẹp:",
+      "start": 1147.239,
+      "end": 1149.989,
+      "duration": 2.75,
+      "speech": 2.75
+    },
+    {
+      "speaker": "vy",
+      "text": "Tình yêu thương của người thầy, người cô có thể đi rất xa — vượt qua khoảng cách của núi rừng, thời gian và cả những năm tháng trưởng thành của học trò.",
+      "big": true,
+      "pause": 1.0,
+      "start": 1150.439,
+      "end": 1159.914,
+      "duration": 9.475,
+      "speech": 9.475
+    },
+    {
+      "speaker": "huy",
+      "text": "Có những người thầy đứng trên bục giảng.",
+      "visual": "teachers",
+      "start": 1160.914,
+      "end": 1163.344,
+      "duration": 2.43,
+      "speech": 2.43
+    },
+    {
+      "speaker": "huy",
+      "text": "Có những người thầy đi giữa núi rừng.",
+      "start": 1163.794,
+      "end": 1166.224,
+      "duration": 2.43,
+      "speech": 2.43
+    },
+    {
+      "speaker": "huy",
+      "text": "Có những người cô lặng lẽ bên trang giáo án.",
+      "start": 1166.674,
+      "end": 1169.604,
+      "duration": 2.93,
+      "speech": 2.93
+    },
+    {
+      "speaker": "huy",
+      "text": "Và cũng có những người chỉ xuất hiện trong cuộc đời một học sinh ở một thời điểm rất ngắn.",
+      "start": 1170.054,
+      "end": 1175.484,
+      "duration": 5.43,
+      "speech": 5.43
+    },
+    {
+      "speaker": "huy",
+      "text": "Nhưng điều họ trao lại có thể ở bên học trò suốt cả một đời.",
+      "start": 1175.934,
+      "end": 1180.114,
+      "duration": 4.18,
+      "speech": 4.18
+    },
+    {
+      "speaker": "huy",
+      "text": "Đó có thể là một bài học.",
+      "start": 1180.564,
+      "end": 1182.744,
+      "duration": 2.18,
+      "speech": 2.18
+    },
+    {
+      "speaker": "huy",
+      "text": "Một lời động viên.",
+      "start": 1183.194,
+      "end": 1184.624,
+      "duration": 1.43,
+      "speech": 1.43
+    },
+    {
+      "speaker": "huy",
+      "text": "Một niềm tin.",
+      "start": 1185.074,
+      "end": 1186.254,
+      "duration": 1.18,
+      "speech": 1.18
+    },
+    {
+      "speaker": "huy",
+      "text": "Hay đơn giản là cảm giác:",
+      "start": 1186.704,
+      "end": 1188.634,
+      "duration": 1.93,
+      "speech": 1.93
+    },
+    {
+      "speaker": "huy",
+      "text": "“Mình đã từng được một người tin tưởng.”",
+      "big": true,
+      "pause": 1.0,
+      "start": 1189.084,
+      "end": 1191.514,
+      "duration": 2.43,
+      "speech": 2.43
+    },
+    {
+      "hold": 4,
+      "visual": "stories",
+      "section": {
+        "no": "XI",
+        "title": "Kết nối với các câu chuyện khác trong sách"
+      },
+      "panel": {
+        "kind": "titles",
+        "items": [
+          "THẦY ƠI! THẦY...",
+          "CÔ GIÁO VÀ HỌC TRÒ CŨ",
+          "EM GỌI CÔ LÀ MẸ",
+          "THẦY ĐẠM",
+          "NGHỀ GIÁO",
+          "BỤI PHẤN THÔI BAY",
+          "CÔ GIÁO VỠ LÒNG CỦA TÔI..."
+        ]
+      },
+      "start": 1192.514,
+      "end": 1196.514,
+      "duration": 4.0,
+      "speech": 0.0
+    },
+    {
+      "speaker": "myanh",
+      "text": "“Người thắp đèn cho núi” không phải câu chuyện duy nhất trong cuốn sách.",
+      "start": 1196.964,
+      "end": 1200.759,
+      "duration": 3.795,
+      "speech": 3.795
+    },
+    {
+      "speaker": "myanh",
+      "text": "Ở những trang sách khác, chúng ta còn gặp những người thầy, người cô với những câu chuyện rất khác nhau.",
+      "start": 1201.209,
+      "end": 1207.047,
+      "duration": 5.838,
+      "speech": 5.838
+    },
+    {
+      "speaker": "myanh",
+      "text": "Có người được học trò nhớ đến sau nhiều năm.",
+      "start": 1207.497,
+      "end": 1210.331,
+      "duration": 2.834,
+      "speech": 2.834
+    },
+    {
+      "speaker": "myanh",
+      "text": "Có người đã trở thành điểm tựa cho một đứa trẻ.",
+      "start": 1210.781,
+      "end": 1213.855,
+      "duration": 3.074,
+      "speech": 3.074
+    },
+    {
+      "speaker": "myanh",
+      "text": "Có người âm thầm hy sinh mà chẳng cần được gọi tên.",
+      "start": 1214.305,
+      "end": 1217.62,
+      "duration": 3.315,
+      "speech": 3.315
+    },
+    {
+      "speaker": "myanh",
+      "text": "Và cũng có những người thầy, người cô đã để lại trong học trò một bài học giản dị nhưng theo các em suốt cả cuộc đời.",
+      "start": 1218.07,
+      "end": 1225.17,
+      "duration": 7.1,
+      "speech": 7.1
+    },
+    {
+      "speaker": "vy",
+      "text": "Đọc những câu chuyện ấy, chúng em nhận ra rằng nghề giáo không chỉ là truyền đạt kiến thức.",
+      "panel": null,
+      "visual": "dangtam",
+      "start": 1225.62,
+      "end": 1231.127,
+      "duration": 5.507,
+      "speech": 5.507
+    },
+    {
+      "speaker": "vy",
+      "text": "Đó còn là hành trình gieo những hạt giống.",
+      "big": true,
+      "start": 1231.577,
+      "end": 1234.327,
+      "duration": 2.75,
+      "speech": 2.75
+    },
+    {
+      "speaker": "vy",
+      "text": "Có hạt giống nảy mầm ngay trong một tiết học.",
+      "start": 1234.777,
+      "end": 1237.784,
+      "duration": 3.007,
+      "speech": 3.007
+    },
+    {
+      "speaker": "vy",
+      "text": "Có hạt giống cần nhiều năm mới lớn.",
+      "start": 1238.234,
+      "end": 1240.726,
+      "duration": 2.492,
+      "speech": 2.492
+    },
+    {
+      "speaker": "vy",
+      "text": "Và có những hạt giống chỉ thực sự nở hoa khi người học trò đã bước ra khỏi mái trường.",
+      "start": 1241.176,
+      "end": 1246.761,
+      "duration": 5.585,
+      "speech": 5.585
+    },
+    {
+      "speaker": "vy",
+      "text": "Như những hạt giống Đăng Tâm mà Hiếu mang theo xuống núi.",
+      "visual": "seeds",
+      "pause": 1.0,
+      "start": 1247.211,
+      "end": 1250.734,
+      "duration": 3.523,
+      "speech": 3.523
+    },
+    {
+      "speaker": "huy",
+      "text": "Có lẽ, đó cũng là lý do chúng em muốn mang câu chuyện này đến với sân khấu hôm nay.",
+      "visual": "sunrise",
+      "music": "warm",
+      "section": {
+        "no": "XII",
+        "title": "Chuyển sang phần thi năng khiếu"
+      },
+      "start": 1251.734,
+      "end": 1257.344,
+      "duration": 5.61,
+      "speech": 5.61
+    },
+    {
+      "speaker": "huy",
+      "text": "Bởi chúng em không muốn chỉ kể về một người thầy trong một cuốn sách.",
+      "start": 1257.794,
+      "end": 1261.974,
+      "duration": 4.18,
+      "speech": 4.18
+    },
+    {
+      "speaker": "huy",
+      "text": "Chúng em muốn kể về những người thầy, người cô trong cuộc đời mình.",
+      "start": 1262.424,
+      "end": 1266.534,
+      "duration": 4.11,
+      "speech": 4.11
+    },
+    {
+      "speaker": "huy",
+      "text": "Những người đang ngày ngày đứng trên bục giảng.",
+      "visual": "teachers",
+      "start": 1266.984,
+      "end": 1269.664,
+      "duration": 2.68,
+      "speech": 2.68
+    },
+    {
+      "speaker": "huy",
+      "text": "Những người đang lặng lẽ gieo chữ.",
+      "start": 1270.114,
+      "end": 1272.294,
+      "duration": 2.18,
+      "speech": 2.18
+    },
+    {
+      "speaker": "huy",
+      "text": "Những người vẫn đang thắp lên ánh sáng ở những nơi cần ánh sáng.",
+      "start": 1272.744,
+      "end": 1276.674,
+      "duration": 3.93,
+      "speech": 3.93
+    },
+    {
+      "speaker": "myanh",
+      "text": "Và từ những trang sách ấy, chúng em muốn tiếp tục kể câu chuyện bằng một ngôn ngữ khác...",
+      "visual": "sunrise",
+      "start": 1277.124,
+      "end": 1282.661,
+      "duration": 5.537,
+      "speech": 5.537
+    },
+    {
+      "speaker": "myanh",
+      "text": "Không chỉ bằng lời nói.",
+      "start": 1283.111,
+      "end": 1284.743,
+      "duration": 1.632,
+      "speech": 1.632
+    },
+    {
+      "speaker": "myanh",
+      "text": "Mà bằng âm nhạc.",
+      "big": true,
+      "pause": 0.2,
+      "start": 1285.193,
+      "end": 1286.585,
+      "duration": 1.392,
+      "speech": 1.392
+    },
+    {
+      "speaker": "myanh",
+      "text": "Bằng hình ảnh.",
+      "big": true,
+      "pause": 0.2,
+      "start": 1286.785,
+      "end": 1287.936,
+      "duration": 1.151,
+      "speech": 1.151
+    },
+    {
+      "speaker": "myanh",
+      "text": "Bằng những cảm xúc của tuổi học trò dành cho mái trường và thầy cô.",
+      "start": 1288.136,
+      "end": 1292.172,
+      "duration": 4.036,
+      "speech": 4.036
+    },
+    {
+      "speaker": "vy",
+      "text": "Bởi chúng em tin rằng:",
+      "start": 1292.622,
+      "end": 1294.341,
+      "duration": 1.719,
+      "speech": 1.719
+    },
+    {
+      "speaker": "vy",
+      "text": "Một cuốn sách hay không chỉ khiến người đọc hiểu thêm một câu chuyện.",
+      "start": 1294.791,
+      "end": 1298.829,
+      "duration": 4.038,
+      "speech": 4.038
+    },
+    {
+      "speaker": "vy",
+      "text": "Mà còn có thể đánh thức trong mỗi người một tình cảm đẹp.",
+      "start": 1299.279,
+      "end": 1303.06,
+      "duration": 3.781,
+      "speech": 3.781
+    },
+    {
+      "speaker": "vy",
+      "text": "Một ước mơ đẹp.",
+      "start": 1303.51,
+      "end": 1304.971,
+      "duration": 1.461,
+      "speech": 1.461
+    },
+    {
+      "speaker": "vy",
+      "text": "Và một mong muốn được sống tốt hơn.",
+      "start": 1305.421,
+      "end": 1307.913,
+      "duration": 2.492,
+      "speech": 2.492
+    },
+    {
+      "speaker": "vy",
+      "text": "Từ câu chuyện “Người thắp đèn cho núi”, chúng em xin được tiếp tục phần thi của mình bằng tiết mục năng khiếu mang tên:",
+      "start": 1308.363,
+      "end": 1315.416,
+      "duration": 7.053,
+      "speech": 7.053
+    },
+    {
+      "speaker": "vy",
+      "text": "“Bước chân tới trường — Hành trình ước mơ”.",
+      "big": true,
+      "pause": 0.3,
+      "start": 1315.866,
+      "end": 1318.796,
+      "duration": 2.93,
+      "speech": 2.93
+    },
+    {
+      "speaker": "vy",
+      "text": "Xin kính mời quý vị cùng thưởng thức!",
+      "pause": 0.8,
+      "start": 1319.096,
+      "end": 1321.588,
+      "duration": 2.492,
+      "speech": 2.492
+    },
+    {
+      "hold": 7,
+      "part": "Tiết mục năng khiếu",
+      "visual": "partcard",
+      "music": "none",
+      "sfx": "gong",
+      "led": {
+        "title": "BƯỚC CHÂN TỚI TRƯỜNG",
+        "sub": "Hành trình ước mơ",
+        "style": "part"
+      },
+      "start": 1322.388,
+      "end": 1329.388,
+      "duration": 7.0,
+      "speech": 0.0
+    },
+    {
+      "hold": 6,
+      "visual": "blackout",
+      "music": "forest",
+      "cue": "Sân khấu tối — tiếng chim, tiếng suối, tiếng gió núi",
+      "start": 1329.838,
+      "end": 1335.838,
+      "duration": 6.0,
+      "speech": 0.0
+    },
+    {
+      "hold": 36,
+      "visual": "kidsroad",
+      "section": {
+        "no": "1",
+        "title": "Bình minh vùng cao"
+      },
+      "cue": "Học sinh vùng cao gọi nhau đi học, trèo đèo, lội suối, qua cầu — tay che nắng nhìn về phía trường",
+      "start": 1336.288,
+      "end": 1372.288,
+      "duration": 36.0,
+      "speech": 0.0
+    },
+    {
+      "hold": 24,
+      "visual": "schoolyard",
+      "music": "bright",
+      "cue": "Đến sân trường: nắm tay đi vòng quanh cột cờ, chơi trò chơi, đuổi bắt, ôn bài",
+      "start": 1372.738,
+      "end": 1396.738,
+      "duration": 24.0,
+      "speech": 0.0
+    },
+    {
+      "hold": 70,
+      "visual": "kidsroad",
+      "music": "bright",
+      "section": {
+        "no": "2",
+        "title": "Con đường đến trường"
+      },
+      "cue": "Nhạc “Bước chân tới trường” — phần múa, hát chính (Gia Hân)",
+      "led": {
+        "title": "“Con đường đến trường có thể quanh co...”",
+        "style": "lyric"
+      },
+      "start": 1397.188,
+      "end": 1467.188,
+      "duration": 70.0,
+      "speech": 0.0
+    },
+    {
+      "hold": 6,
+      "visual": "schoolyard",
+      "music": "none",
+      "sfx": "schooldrum",
+      "cue": "Tiếng trống trường — các em vào lớp",
+      "start": 1467.638,
+      "end": 1473.638,
+      "duration": 6.0,
+      "speech": 0.0
+    },
+    {
+      "speaker": "lop",
+      "text": "Năm điều Bác Hồ dạy thiếu niên, nhi đồng.",
+      "visual": "classroom",
+      "panel": {
+        "kind": "rules5",
+        "title": "5 ĐIỀU BÁC HỒ DẠY",
+        "items": [
+          "Yêu Tổ quốc, yêu đồng bào.",
+          "Học tập tốt, lao động tốt.",
+          "Đoàn kết tốt, kỷ luật tốt.",
+          "Giữ gìn vệ sinh thật tốt.",
+          "Khiêm tốn, thật thà, dũng cảm."
+        ]
+      },
+      "pause": 0.5,
+      "start": 1474.088,
+      "end": 1477.092,
+      "duration": 3.004,
+      "speech": 3.004
+    },
+    {
+      "speaker": "lop",
+      "text": "Một: Yêu Tổ quốc, yêu đồng bào.",
+      "reveal": 1,
+      "pause": 0.4,
+      "start": 1477.592,
+      "end": 1480.244,
+      "duration": 2.652,
+      "speech": 2.652
+    },
+    {
+      "speaker": "lop",
+      "text": "Hai: Học tập tốt, lao động tốt.",
+      "reveal": 2,
+      "pause": 0.4,
+      "start": 1480.644,
+      "end": 1483.296,
+      "duration": 2.652,
+      "speech": 2.652
+    },
+    {
+      "speaker": "lop",
+      "text": "Ba: Đoàn kết tốt, kỷ luật tốt.",
+      "reveal": 3,
+      "pause": 0.4,
+      "start": 1483.696,
+      "end": 1486.348,
+      "duration": 2.652,
+      "speech": 2.652
+    },
+    {
+      "speaker": "lop",
+      "text": "Bốn: Giữ gìn vệ sinh thật tốt.",
+      "reveal": 4,
+      "pause": 0.4,
+      "start": 1486.748,
+      "end": 1489.22,
+      "duration": 2.472,
+      "speech": 2.472
+    },
+    {
+      "speaker": "lop",
+      "text": "Năm: Khiêm tốn, thật thà, dũng cảm.",
+      "reveal": 5,
+      "pause": 1.0,
+      "start": 1489.62,
+      "end": 1492.452,
+      "duration": 2.832,
+      "speech": 2.832
+    },
+    {
+      "speaker": "lop",
+      "text": "Chúng em chào thầy ạ!",
+      "panel": null,
+      "cue": "Thầy vào lớp",
+      "start": 1493.452,
+      "end": 1495.212,
+      "duration": 1.76,
+      "speech": 1.76
+    },
+    {
+      "speaker": "thay",
+      "text": "Thầy chào cả lớp. Các em ngồi xuống nào. Hôm nay, thầy trò mình cùng mở trang sách mới.",
+      "start": 1495.662,
+      "end": 1501.58,
+      "duration": 5.918,
+      "speech": 5.918
+    },
+    {
+      "hold": 18,
+      "music": "piano",
+      "cue": "Thầy giảng bài — cả lớp chăm chú học",
+      "start": 1502.03,
+      "end": 1520.03,
+      "duration": 18.0,
+      "speech": 0.0
+    },
+    {
+      "hold": 44,
+      "visual": "summit",
+      "music": "bright",
+      "section": {
+        "no": "3",
+        "title": "Ánh sáng tri thức"
+      },
+      "cue": "Gian tấu: cả lớp ra sân — khăn voan, tạo hình Thầy — Trò đưa sách lên cao, dải khăn như dải núi",
+      "start": 1520.48,
+      "end": 1564.48,
+      "duration": 44.0,
+      "speech": 0.0
+    },
+    {
+      "hold": 40,
+      "visual": "flag",
+      "section": {
+        "no": "4",
+        "title": "Một ngôi trường, một ước mơ"
+      },
+      "cue": "Đội hình cuối: múa H'Mông, tạo hình tháp vươn cao — giơ sách, hoa, khăn — lá cờ Tổ quốc",
+      "start": 1564.93,
+      "end": 1604.93,
+      "duration": 40.0,
+      "speech": 0.0
+    },
+    {
+      "speaker": "all",
+      "text": "Con đường đến trường có thể quanh co, nhưng mỗi bước chân của chúng em đều đưa mình gần hơn tới tri thức và ước mơ!",
+      "big": true,
+      "music": "warm",
+      "start": 1605.38,
+      "end": 1612.49,
+      "duration": 7.11,
+      "speech": 7.11
+    },
+    {
+      "speaker": "all",
+      "text": "Chúng em xin cảm ơn quý vị!",
+      "pause": 0.4,
+      "start": 1612.94,
+      "end": 1615.12,
+      "duration": 2.18,
+      "speech": 2.18
+    },
+    {
+      "hold": 4,
+      "visual": "flag",
+      "music": "none",
+      "freeze": true,
+      "cue": "Freeze — đèn sáng toàn sân khấu",
+      "start": 1615.52,
+      "end": 1619.52,
+      "duration": 4.0,
+      "speech": 0.0
+    },
+    {
+      "hold": 5,
+      "part": "Lời kết",
+      "visual": "lampbook",
+      "music": "piano",
+      "section": {
+        "no": "XIII",
+        "title": "Khép lại phần thi"
+      },
+      "start": 1619.97,
+      "end": 1624.97,
+      "duration": 5.0,
+      "speech": 0.0
+    },
+    {
+      "speaker": "myanh",
+      "text": "Một cuốn sách có thể bắt đầu bằng một câu chuyện...",
+      "start": 1625.42,
+      "end": 1628.854,
+      "duration": 3.434,
+      "speech": 3.434
+    },
+    {
+      "speaker": "myanh",
+      "text": "Nhưng điều đẹp nhất là khi câu chuyện ấy tiếp tục sống trong trái tim người đọc.",
+      "big": true,
+      "start": 1629.304,
+      "end": 1633.821,
+      "duration": 4.517,
+      "speech": 4.517
+    },
+    {
+      "speaker": "huy",
+      "text": "Một người thầy có thể chỉ thắp lên một ngọn đèn...",
+      "start": 1634.271,
+      "end": 1637.811,
+      "duration": 3.54,
+      "speech": 3.54
+    },
+    {
+      "speaker": "huy",
+      "text": "Nhưng ánh sáng ấy có thể theo một người học trò đi suốt cả cuộc đời.",
+      "big": true,
+      "start": 1638.261,
+      "end": 1642.691,
+      "duration": 4.43,
+      "speech": 4.43
+    },
+    {
+      "speaker": "vy",
+      "text": "Và có lẽ, đó cũng chính là thông điệp mà chúng em muốn gửi lại qua những trang sách “Người thắp đèn cho núi”:",
+      "start": 1643.141,
+      "end": 1649.937,
+      "duration": 6.796,
+      "speech": 6.796
+    },
+    {
+      "speaker": "vy",
+      "text": "Hãy biết trân trọng những người đã thắp sáng con đường mình đi.",
+      "big": true,
+      "pause": 0.6,
+      "start": 1650.387,
+      "end": 1654.168,
+      "duration": 3.781,
+      "speech": 3.781
+    },
+    {
+      "speaker": "vy",
+      "text": "Bởi ở đâu có tri thức, ở đó có ánh sáng.",
+      "start": 1654.768,
+      "end": 1658.213,
+      "duration": 3.445,
+      "speech": 3.445
+    },
+    {
+      "speaker": "vy",
+      "text": "Ở đâu có tình yêu thương, ở đó những ước mơ có thể nảy mầm.",
+      "pause": 0.8,
+      "start": 1658.663,
+      "end": 1663.139,
+      "duration": 4.476,
+      "speech": 4.476
+    },
+    {
+      "speaker": "vy",
+      "text": "Phần thi của đơn vị Trường THCS Hòa Phú — đại diện cho xã Hòa Phú — đến đây xin được khép lại.",
+      "visual": "stage",
+      "panel": {
+        "kind": "trio"
+      },
+      "start": 1663.939,
+      "end": 1670.657,
+      "duration": 6.718,
+      "speech": 6.718
+    },
+    {
+      "speaker": "vy",
+      "text": "Xin cảm ơn quý vị đã lắng nghe và đồng hành cùng chúng em!",
+      "start": 1671.107,
+      "end": 1675.145,
+      "duration": 4.038,
+      "speech": 4.038
+    },
+    {
+      "speaker": "vy",
+      "text": "Chúc cho Hội thi “Thiếu nhi tuyên truyền giới thiệu sách năm 2026” của tỉnh Đắk Lắk thành công rực rỡ!",
+      "pause": 1.0,
+      "start": 1675.595,
+      "end": 1681.437,
+      "duration": 5.842,
+      "speech": 5.842
+    },
+    {
+      "hold": 9,
+      "visual": "lampbook",
+      "music": "warm",
+      "panel": null,
+      "sfx": "chime",
+      "led": {
+        "title": "NGƯỜI THẮP ĐÈN CHO NÚI",
+        "sub": "“Có những người không chỉ thắp đèn cho núi — mà còn thắp sáng cả những cuộc đời!”",
+        "style": "final"
+      },
+      "start": 1682.437,
+      "end": 1691.437,
+      "duration": 9.0,
+      "speech": 0.0
+    },
+    {
+      "hold": 5,
+      "visual": "blackout",
+      "music": "none",
+      "fadeout": true,
+      "start": 1691.887,
+      "end": 1696.887,
+      "duration": 5.0,
+      "speech": 0.0
+    }
   ]
 }

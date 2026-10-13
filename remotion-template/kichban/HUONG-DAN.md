@@ -14,6 +14,9 @@ Giọng đọc (Edge-TTS): **Tường Vy** = Hoài My, **My Anh** = Hoài My gi�
 
 ## Chạy trên máy (Windows)
 
+Cách nhanh: bấm đúp `remotion-template\lam-video.bat` (tự cài, tạo giọng, render → `out\video.mp4`).
+Hoặc chạy từng bước:
+
 ```bat
 cd VideoLocalizer\remotion-template
 npm install                                   :: một lần

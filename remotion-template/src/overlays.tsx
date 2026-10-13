@@ -206,13 +206,15 @@ export const SectionCard: React.FC<{ no?: string; title: string; from: number }>
   );
 };
 
-export const PartChip: React.FC<{ part?: string; section?: { no?: string; title: string } }> = ({ part, section }) => {
+export const PartChip: React.FC<{ part?: string; section?: { no?: string; title: string }; fadeIn?: boolean }> = ({ part, section, fadeIn }) => {
   const u = useU();
+  const f = useCurrentFrame();
   if (!part) return null;
+  const o = fadeIn ? clamp01((f - 20) / 20) * 0.85 : 0.85;
   return (
     <div style={{
       position: "absolute", left: 60 * u, top: 46 * u, fontFamily: FONT_SANS, color: "#fff", display: "flex", alignItems: "center",
-      gap: 14 * u, textShadow: "0 2px 10px rgba(0,0,0,.8)", opacity: 0.85,
+      gap: 14 * u, textShadow: "0 2px 10px rgba(0,0,0,.8)", opacity: o,
     }}>
       <div style={{ width: 12 * u, height: 12 * u, transform: "rotate(45deg)", background: "#f2b544" }} />
       <div style={{ fontWeight: 800, fontSize: 22 * u, letterSpacing: 4 * u, textTransform: "uppercase" }}>{part}</div>

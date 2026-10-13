@@ -1,0 +1,10 @@
+{
+  "name": "videolocalizer-hyperframes-inserts",
+  "private": true,
+  "type": "module",
+  "description": "Các đoạn chữ động (mở đầu, thẻ chương, danh đề) làm bằng HyperFrames + GSAP, chèn vào video Remotion.",
+  "dependencies": {
+    "gsap": "3.14.2",
+    "hyperframes": "0.8.151"
+  }
+}

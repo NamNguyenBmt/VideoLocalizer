@@ -67,10 +67,10 @@ def clone_test(ref_audio: str, ref_text: str, text: str, out_path: str | None = 
 
 
 # ---- per-cue synthesis for each engine --------------------------------------
-def _edge_one(text: str, voice: str, rate: str, out: Path):
+def _edge_one(text: str, voice: str, rate: str, out: Path, pitch: str = "+0Hz"):
     import asyncio
     import edge_tts
-    asyncio.run(edge_tts.Communicate(text, voice, rate=rate).save(str(out)))
+    asyncio.run(edge_tts.Communicate(text, voice, rate=rate, pitch=pitch).save(str(out)))
 
 
 _PIPER_CACHE = {}
@@ -195,9 +195,9 @@ def fit_to_window(path: str, window: float, max_speed=1.6, log=print) -> tuple[s
 
 
 def _synth_one(text: str, engine: str, voice: str, rate: str, model_onnx: str,
-               ref_audio: str, ref_text: str, out: Path, log=print):
+               ref_audio: str, ref_text: str, out: Path, log=print, pitch: str = "+0Hz"):
     if engine == "edge":
-        _edge_one(text, voice, rate, out)
+        _edge_one(text, voice, rate, out, pitch)
     elif engine == "piper":
         _piper_one(text, model_onnx, out, log)
     elif engine == "clone":

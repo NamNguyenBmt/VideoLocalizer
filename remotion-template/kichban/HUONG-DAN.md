@@ -14,7 +14,9 @@ Giọng đọc (Edge-TTS): **Tường Vy** = Hoài My, **My Anh** = Hoài My gi�
 
 ## Chạy trên máy (Windows)
 
-Cách nhanh: bấm đúp `remotion-template\lam-video.bat` (tự cài, tạo giọng, render → `out\video.mp4`).
+Cách nhanh: bấm đúp `remotion-template\lam-video.bat`. File này tự cài, tạo giọng, render các đoạn chèn HyperFrames (mở đầu, thẻ chương, danh đề), render Remotion rồi master âm thanh → `out\video-master.mp4`.
+
+Các đoạn HyperFrames cần **Node.js 22 trở lên**. Máy có Node cũ hơn thì các đoạn này tự được thay bằng nền Remotion, video vẫn ra bình thường.
 Hoặc chạy từng bước:
 
 ```bat

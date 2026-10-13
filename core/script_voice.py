@@ -73,7 +73,7 @@ def _estimate(text: str, rate: str) -> float:
     speed = 1 + (int(m.group(1)) / 100 if m else 0)
     words = len(text.split())
     pauses = len(re.findall(r"[,.;:!?…—–]", text))
-    return round(0.25 + words / (4.0 * speed) + pauses * 0.18, 3)
+    return round(0.25 + words / (3.85 * speed) + pauses * 0.18, 3)
 
 
 def _to_wav(src: Path, dst: Path, log=print) -> float:
@@ -108,7 +108,13 @@ def _synth_cached(sc: dict, cfg: dict, idx: int, parts_dir: Path, piper_ref: str
     raise RuntimeError(f"Tạo giọng thất bại ở cảnh {idx}: {text[:60]}")
 
 
-def _write_voice(placed: list[tuple[float, Path]], total: float, out_m4a: Path, log=print):
+# Xử lý giọng kiểu phòng thu: cắt ù thấp, bớt đục, sáng giọng, nén nhẹ, chặn đỉnh.
+VOICE_FX = ("highpass=f=75,equalizer=f=220:t=q:w=1.1:g=-2.5,equalizer=f=3200:t=q:w=1.3:g=2.5,"
+            "equalizer=f=9000:t=h:w=0.7:g=1.5,"
+            "acompressor=threshold=0.12:ratio=2.8:attack=8:release=140:makeup=1.6,alimiter=limit=0.89")
+
+
+def _write_voice(placed: list[tuple[float, Path]], total: float, out_m4a: Path, log=print, fx: bool = True):
     """Lay WAV clips on a silent track of `total` seconds and encode to m4a."""
     wav_path = out_m4a.with_suffix(".wav")
     n_total = int(round(total * SAMPLE_RATE))
@@ -129,7 +135,7 @@ def _write_voice(placed: list[tuple[float, Path]], total: float, out_m4a: Path, 
         if n_total > pos:
             dst.writeframes(b"\x00\x00" * (n_total - pos))
     cmd = [tools.ffmpeg(), "-y", "-loglevel", "error", "-i", str(wav_path),
-           "-c:a", "aac", "-b:a", "160k", str(out_m4a)]
+           *(["-af", VOICE_FX] if fx else []), "-ar", "48000", "-c:a", "aac", "-b:a", "192k", str(out_m4a)]
     if tools.run(cmd, log) != 0:
         raise RuntimeError("Ghép giọng thất bại")
     wav_path.unlink(missing_ok=True)
@@ -185,7 +191,7 @@ def build(script: dict, out_dir: str, engine: str | None = None, voice: str | No
     total = round(scenes[-1]["end"] + float(cfg["tail"]), 3)
 
     if not dry_run:
-        _write_voice(placed, total, out / "voice.m4a", log)
+        _write_voice(placed, total, out / "voice.m4a", log, fx=cfg.get("voice_fx", True) is not False)
 
     timeline = {**{k: v for k, v in cfg.items() if k not in ("lead_in", "tail")},
                 "audio": None if dry_run else "voice.m4a", "duration": total, "scenes": scenes}

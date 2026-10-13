@@ -321,6 +321,52 @@ def sfx_whoosh():
     return 0.35 * out * np.sin(np.pi * t / 1.4) ** 2
 
 
+def sfx_riser(sec=3.2):
+    """Tiếng vút lên trước thẻ chương: nhiễu quét lên + âm cao dần, mạnh dần."""
+    t = t_axis(sec)
+    n = rng.standard_normal(len(t))
+    out = np.zeros(len(t))
+    steps = 24
+    for i in range(steps):
+        seg = slice(int(i * len(t) / steps), int((i + 1) * len(t) / steps))
+        c = 300 * (12 ** (i / steps))
+        out[seg] = bandpass(n, c * 0.7, min(c * 1.4, 18000))[seg]
+    f = 110 * 2 ** (t / sec * 2.5)
+    tone = np.sin(2 * np.pi * np.cumsum(f) / SR) * 0.25
+    env = (t / sec) ** 2.2
+    return reverb((out * 0.5 + tone) * env, 1.8, 0.3)
+
+
+def sfx_impact():
+    """Cú nện điện ảnh: boom trầm + tiếng đập, đuôi vang dài."""
+    t = t_axis(4.5)
+    pitch = 48 * (1 + 2.5 * np.exp(-t * 14))
+    boom = np.sin(2 * np.pi * np.cumsum(pitch) / SR) * np.exp(-t * 1.6)
+    hit = lowpass(rng.standard_normal(len(t)), 2500) * np.exp(-t * 22) * 0.6
+    return reverb(boom + hit, 3.0, 0.35, bright=2500)
+
+
+def sfx_shimmer():
+    x = np.zeros(int(4 * SR))
+    for k, nm in enumerate(["E6", "G6", "B6", "D7", "E7", "B6"]):
+        place(x, marimba(hz(nm), 2.8, 0.18), k * 0.11)
+    return reverb(x, 3.2, 0.5, bright=9000)
+
+
+def track_night(sec=40):
+    """Đêm núi: dế kêu + gió nhẹ."""
+    n = int(sec * SR)
+    wind = lowpass(np.cumsum(rng.standard_normal(n)) * 0.0015, 400)
+    x = wind / (np.abs(wind).max() + 1e-9) * 0.18
+    for at in np.arange(0.2, sec - 0.5, 0.42):
+        if rng.uniform() < 0.8:
+            f0 = rng.choice([4200.0, 4600.0, 5100.0])
+            for k in range(int(rng.integers(3, 6))):
+                d = t_axis(0.025)
+                place(x, np.sin(2 * np.pi * f0 * d) * np.sin(np.pi * d / 0.025) * rng.uniform(0.03, 0.07), at + k * 0.045)
+    return loopify(reverb(np.concatenate([x, np.zeros(SR * 3)]), 1.2, 0.2))
+
+
 def write(name, x, peak=0.8, kbps=96):
     x = x / (np.abs(x).max() + 1e-9) * peak
     wav = OUT / f"{name}.wav"
@@ -346,6 +392,7 @@ def main():
     write("warm", track_warm())
     write("festival", track_festival())
     write("bright", track_bright())
+    write("night", track_night(), 0.6)
     print("Hiệu ứng:")
     write("drum", sfx_drum(), 0.95)
     write("drum3", sfx_drum3(), 0.95)
@@ -353,6 +400,9 @@ def main():
     write("chime", sfx_chime(), 0.7)
     write("gong", sfx_gong(), 0.8)
     write("whoosh", sfx_whoosh(), 0.6)
+    write("riser", sfx_riser(), 0.75)
+    write("impact", sfx_impact(), 0.95)
+    write("shimmer", sfx_shimmer(), 0.7)
 
 
 if __name__ == "__main__":

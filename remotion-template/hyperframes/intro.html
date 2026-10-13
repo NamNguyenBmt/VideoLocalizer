@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="vi" data-composition-variables='[
+  {"id":"kicker","type":"string","label":"Dòng nhỏ","default":"TRƯỜNG THCS HÒA PHÚ · XÃ HÒA PHÚ"},
+  {"id":"line1","type":"string","label":"Tiêu đề dòng 1","default":"HỘI THI THIẾU NHI"},
+  {"id":"line2","type":"string","label":"Tiêu đề dòng 2","default":"TUYÊN TRUYỀN GIỚI THIỆU SÁCH"},
+  {"id":"year","type":"string","label":"Năm","default":"2026"},
+  {"id":"tagline","type":"string","label":"Câu chủ đề","default":"Công cha — Nghĩa mẹ — Ơn thầy"}
+]'>
+<head>
+  <meta charset="UTF-8" />
+  <link rel="stylesheet" href="common.css" />
+  <script src="node_modules/gsap/dist/gsap.min.js"></script>
+  <script src="common.js"></script>
+  <style>
+    #bg { background: radial-gradient(ellipse at 50% 60%, #1c2547 0%, #0a0e1f 55%, #020308 100%); }
+    .ridge { position: absolute; left: -10%; width: 120%; }
+    #rays { position: absolute; left: 50%; top: 58%; width: 3000px; height: 3000px; margin: -1500px 0 0 -1500px;
+      background: repeating-conic-gradient(from 0deg, rgba(255,226,160,.07) 0deg 4deg, rgba(255,226,160,0) 4deg 15deg);
+      -webkit-mask-image: radial-gradient(circle, #000 0%, rgba(0,0,0,0) 55%); mask-image: radial-gradient(circle, #000 0%, rgba(0,0,0,0) 55%); }
+    #glow { position: absolute; left: 50%; top: 58%; width: 1400px; height: 900px; margin: -450px 0 0 -700px;
+      background: radial-gradient(ellipse, rgba(255,200,110,.35), rgba(255,200,110,0) 65%); }
+    #kicker { font-weight: 700; font-size: 30px; letter-spacing: 14px; color: #f2b544; }
+    #rule { width: 760px; height: 3px; margin: 30px 0 34px; background: linear-gradient(90deg, rgba(242,181,68,0), #f2b544, rgba(242,181,68,0)); transform-origin: 50% 50%; }
+    #l1 { font-family: PFD, serif; font-weight: 800; font-size: 110px; line-height: 1.05; }
+    #l2 { font-family: PFD, serif; font-weight: 800; font-size: 82px; line-height: 1.15; margin-top: 8px; color: #fff3d6; }
+    #year { font-weight: 800; font-size: 150px; letter-spacing: 30px; margin-top: 22px; color: #ffd27a;
+      text-shadow: 0 0 40px rgba(255,190,90,.55); }
+    #tag { font-family: PFD, serif; font-style: italic; font-weight: 500; font-size: 44px; color: #f4ead7; margin-top: 18px; }
+    #flare { position: absolute; top: 380px; left: -600px; width: 520px; height: 320px;
+      background: radial-gradient(ellipse, rgba(255,240,200,.9), rgba(255,200,120,.25) 30%, rgba(255,200,120,0) 70%); mix-blend-mode: screen; }
+    #flarebar { position: absolute; top: 538px; left: 0; width: 1920px; height: 4px; background: rgba(255,232,180,.6); filter: blur(2px); mix-blend-mode: screen; }
+    #bands .brocade:first-child { top: 70px; } #bands .brocade:last-child { bottom: 70px; }
+  </style>
+</head>
+<body>
+<div class="stage" data-composition-id="root" data-width="1920" data-height="1080" data-start="0" data-duration="__DUR__">
+  <div class="layer clip" id="bg" data-start="0" data-duration="__DUR__">
+    <div id="rays"></div>
+    <div id="glow"></div>
+    <svg class="ridge" id="r1" style="bottom:0" viewBox="0 0 2300 400" height="400" preserveAspectRatio="none">
+      <path d="M0,400 L0,260 L180,170 L330,240 L520,110 L700,230 L900,140 L1100,250 L1300,120 L1500,220 L1700,150 L1900,240 L2100,160 L2300,230 L2300,400 Z" fill="#141a33" />
+    </svg>
+    <svg class="ridge" id="r2" style="bottom:0" viewBox="0 0 2300 300" height="300" preserveAspectRatio="none">
+      <path d="M0,300 L0,200 L240,120 L460,210 L700,130 L960,220 L1200,110 L1440,210 L1700,140 L1960,220 L2300,150 L2300,300 Z" fill="#090c1a" />
+    </svg>
+    <div class="layer" id="dust"></div>
+  </div>
+  <div class="layer clip" id="bands" data-start="0" data-duration="__DUR__"><div class="brocade"></div><div class="brocade"></div></div>
+  <div class="layer center clip" id="title" data-start="0" data-duration="__DUR__">
+    <div id="kicker"></div>
+    <div id="rule"></div>
+    <div id="l1"></div>
+    <div id="l2"></div>
+    <div id="year"></div>
+    <div id="tag"></div>
+  </div>
+  <div class="layer clip" id="fx" data-start="0" data-duration="__DUR__"><div id="flare"></div><div id="flarebar"></div></div>
+  <div class="layer vignette clip" data-start="0" data-duration="__DUR__"></div>
+  <div class="layer clip" data-start="0" data-duration="__DUR__" style="overflow:hidden"><div class="grain" id="grain"></div></div>
+  <script>
+    (function () {
+      const D = __DUR__;
+      const v = HF.vars();
+      const set = (id, t) => (document.getElementById(id).textContent = t);
+      set("kicker", v.kicker); set("l1", v.line1); set("l2", v.line2); set("year", v.year); set("tag", v.tagline);
+      const dots = HF.dust(document.getElementById("dust"), 70, 7, { min: 2, max: 5 });
+      const k = HF.chars(document.getElementById("kicker"));
+      const c1 = HF.chars(document.getElementById("l1"));
+      const c2 = HF.chars(document.getElementById("l2"));
+
+      const tl = gsap.timeline({ paused: true });
+      // nền: hiện dần, ánh sáng quay chậm, núi trôi parallax
+      tl.fromTo("#bg", { opacity: 0 }, { opacity: 1, duration: 1.6, ease: "power1.out" }, 0);
+      tl.fromTo("#rays", { rotation: -8 }, { rotation: 10, duration: D, ease: "none" }, 0);
+      tl.fromTo("#glow", { scale: 0.7, opacity: 0.3 }, { scale: 1.15, opacity: 1, duration: D * 0.7, ease: "sine.inOut" }, 0);
+      tl.fromTo("#r1", { x: -40 }, { x: 40, duration: D, ease: "none" }, 0);
+      tl.fromTo("#r2", { x: 60 }, { x: -60, duration: D, ease: "none" }, 0);
+      dots.forEach((d, i) => tl.fromTo(d, { x: 0, y: 0 }, { x: +d.dataset.dx, y: +d.dataset.dy, duration: D, ease: "none" }, 0));
+      tl.fromTo("#grain", { x: 0, y: 0 }, { x: -120, y: 80, duration: D, ease: "steps(" + Math.round(D * 12) + ")" }, 0);
+      // dải thổ cẩm trượt vào
+      tl.fromTo("#bands .brocade:first-child", { xPercent: -100 }, { xPercent: 0, duration: 1.4, ease: "power3.out" }, 0.6);
+      tl.fromTo("#bands .brocade:last-child", { xPercent: 100 }, { xPercent: 0, duration: 1.4, ease: "power3.out" }, 0.6);
+      // chữ
+      tl.from(k, { opacity: 0, y: 14, duration: 0.5, stagger: 0.03, ease: "power2.out" }, 1.0);
+      tl.fromTo("#rule", { scaleX: 0 }, { scaleX: 1, duration: 1.2, ease: "power3.inOut" }, 1.4);
+      tl.from(c1, { opacity: 0, y: 90, rotationX: -70, duration: 0.8, stagger: 0.035, ease: "back.out(1.6)" }, 2.0);
+      tl.from(c2, { opacity: 0, y: 60, duration: 0.7, stagger: 0.022, ease: "power3.out" }, 2.9);
+      tl.fromTo("#year", { opacity: 0, scale: 1.5, scaleX: 1.9 }, { opacity: 1, scale: 1, scaleX: 1, duration: 1.3, ease: "expo.out" }, 4.1);
+      tl.fromTo("#tag", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 1, ease: "power2.out" }, 5.0);
+      // vệt sáng ống kính quét ngang
+      tl.fromTo("#flare", { x: 0, opacity: 0 }, { x: 3000, opacity: 1, duration: 1.8, ease: "power2.inOut" }, 5.6);
+      tl.fromTo("#flarebar", { opacity: 0, scaleX: 0.2 }, { opacity: 1, scaleX: 1, duration: 0.5, yoyo: true, repeat: 1, ease: "sine.inOut" }, 6.1);
+      // máy quay đẩy nhẹ rồi tối dần
+      tl.fromTo("#title", { scale: 1 }, { scale: 1.05, duration: D, ease: "none" }, 0);
+      tl.to(["#title", "#bands", "#fx"], { opacity: 0, duration: 1.1, ease: "power2.in" }, D - 1.4);
+      tl.to("#bg", { opacity: 0, duration: 1.0, ease: "power2.in" }, D - 1.0);
+      window.__timelines = window.__timelines || {};
+      window.__timelines["root"] = tl;
+    })();
+  </script>
+</div>
+</body>
+</html>

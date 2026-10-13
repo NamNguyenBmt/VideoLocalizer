@@ -39,6 +39,11 @@ export type Scene = {
   reveal?: number; // số dòng đã hiện của bảng danh sách
   fadein?: boolean;
   fadeout?: boolean;
+  amb?: string | null; // tiếng nền (mưa, rừng…) chạy song song với nhạc — giữ tới khi đổi
+  grade?: string; // chỉnh màu: film warm golden cool night memory vivid none — giữ tới khi đổi
+  transition?: "fade" | "zoom" | "blur" | "leak" | "dip" | "slide"; // kiểu chuyển sang nền của cảnh này
+  insert?: { hf: string; vars?: Record<string, unknown> }; // đoạn chèn HyperFrames (hyperframes/<hf>.html)
+  insertFile?: string; // do tools/render_inserts.mjs điền
   [k: string]: unknown;
 };
 
@@ -55,6 +60,9 @@ export type Timeline = {
   accent?: string;
   captions?: boolean; // hiện phụ đề (mặc định true)
   showCues?: boolean;
+  cinematic?: boolean; // hạt phim + viền ống kính (mặc định bật)
+  grade?: string; // chỉnh màu mặc định
+  letterbox?: number; // vd. 2.39 → dải đen điện ảnh
   speakers?: Record<string, Speaker>;
   scenes: Scene[];
 };
